@@ -77,6 +77,15 @@ source .venv/bin/activate
 uv run jupyter lab
 ```
 
+### 3. View the Demo Analysis
+```bash
+# Render the demo notebook to HTML
+source .venv/bin/activate && /Applications/quarto/bin/quarto render notebooks/demo_analysis.qmd
+
+# Open the rendered report
+open notebooks/demo_analysis.html
+```
+
 ### 3. Run the Sample API
 ```bash
 uv run uvicorn src.hypermodern_stack.api:app --reload
@@ -195,11 +204,37 @@ Includes: pre-commit, Black, isort, Bandit, pip-audit
 - 📝 **Documentation**: Quarto for reproducible scientific publishing
 - 🏗️ **Production Ready**: FastAPI, Uvicorn, and structured logging
 
+## 📋 Demo Notebooks
+
+The repository includes working demo notebooks:
+
+- **`notebooks/demo_analysis.qmd`** - Working Quarto demo showcasing the full stack
+- **`notebooks/sample_analysis.qmd`** - Comprehensive example (needs minor fixes for Plotly sizing)
+
+### Running the Demo
+
+```bash
+# Option 1: Render with Quarto (requires Quarto installation)
+source .venv/bin/activate
+/Applications/quarto/bin/quarto render notebooks/demo_analysis.qmd
+open notebooks/demo_analysis.html
+
+# Option 2: Use JupyterLab (always works)
+uv run jupyter lab
+# Then navigate to notebooks/ and open the .qmd files
+```
+
+**Note**: If Quarto isn't in `/Applications/quarto/bin/`, find it with:
+```bash
+find /opt /usr /Applications -name "quarto" -type f 2>/dev/null
+```
+
 ## 🚀 Next Steps
 
 1. Start building your API in `src/hypermodern_stack/api.py`
-2. Create Jupyter notebooks in a `notebooks/` directory
+2. Create Jupyter notebooks in the `notebooks/` directory
 3. Write tests in the `tests/` directory
 4. Use Quarto to create reproducible reports and documentation
+5. Check out the working demo at `notebooks/demo_analysis.html`
 
 Happy coding with your hypermodern Python stack! 🐍✨

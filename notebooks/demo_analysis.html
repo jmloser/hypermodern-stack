@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Hypermodern Python Stack Demo</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="demo_analysis_files/libs/clipboard/clipboard.min.js"></script>
+<script src="demo_analysis_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="demo_analysis_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="demo_analysis_files/libs/quarto-html/popper.min.js"></script>
+<script src="demo_analysis_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="demo_analysis_files/libs/quarto-html/anchor.min.js"></script>
+<link href="demo_analysis_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="demo_analysis_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="demo_analysis_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="demo_analysis_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="demo_analysis_files/libs/bootstrap/bootstrap-81267100e462c21b3d6c0d5bf76a3417.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Hypermodern Python Stack Demo</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="welcome-to-the-hypermodern-python-stack" class="level2">
+<h2 class="anchored" data-anchor-id="welcome-to-the-hypermodern-python-stack">Welcome to the Hypermodern Python Stack! 🚀</h2>
+<p>This notebook demonstrates the capabilities of our modern Python development environment.</p>
+<div id="5019c13d" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import libraries from our stack</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rich.console <span class="im">import</span> Console</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rich.table <span class="im">import</span> Table</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>console <span class="op">=</span> Console()</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>console.<span class="bu">print</span>(<span class="st">"🚀 Welcome to the Hypermodern Python Stack!"</span>, style<span class="op">=</span><span class="st">"bold blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080; font-weight: bold">🚀 Welcome to the Hypermodern Python Stack!</span>
+</pre>
+</div>
+</div>
+</section>
+<section id="generate-sample-data" class="level2">
+<h2 class="anchored" data-anchor-id="generate-sample-data">Generate Sample Data</h2>
+<div id="3610de13" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate sample data using numpy</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>n_samples <span class="op">=</span> <span class="dv">500</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'timestamp'</span>: pd.date_range(<span class="st">'2024-01-01'</span>, periods<span class="op">=</span>n_samples, freq<span class="op">=</span><span class="st">'1H'</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'value'</span>: np.cumsum(np.random.randn(n_samples)) <span class="op">*</span> <span class="dv">10</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'category'</span>: np.random.choice([<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'C'</span>], n_samples),</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'feature_1'</span>: np.random.randn(n_samples),</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'feature_2'</span>: np.random.randn(n_samples) <span class="op">*</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">1</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'score'</span>: np.<span class="bu">abs</span>(np.random.randn(n_samples) <span class="op">*</span> <span class="dv">100</span>)  <span class="co"># Always positive for size</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Create both pandas and polars DataFrames for comparison</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>df_pandas <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>df_polars <span class="op">=</span> pl.DataFrame(data)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"✅ Created DataFrames with </span><span class="sc">{</span><span class="bu">len</span>(df_pandas)<span class="sc">}</span><span class="ss"> rows"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>✅ Created DataFrames with 500 rows</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/var/folders/gl/0r6824hs04x_vw94q294645c0000gn/T/ipykernel_53138/751179219.py:6: FutureWarning:
+
+'H' is deprecated and will be removed in a future version, please use 'h' instead.
+</code></pre>
+</div>
+</div>
+</section>
+<section id="fast-data-analysis-with-polars" class="level2">
+<h2 class="anchored" data-anchor-id="fast-data-analysis-with-polars">Fast Data Analysis with Polars</h2>
+<div id="4ef6a686" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrate Polars performance and syntax</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>polars_summary <span class="op">=</span> (</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    df_polars</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    .group_by(<span class="st">'category'</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    .agg([</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">'value'</span>).mean().alias(<span class="st">'mean_value'</span>),</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">'value'</span>).std().alias(<span class="st">'std_value'</span>),</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">'score'</span>).mean().alias(<span class="st">'mean_score'</span>),</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        pl.<span class="bu">len</span>().alias(<span class="st">'count'</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    ])</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    .sort(<span class="st">'mean_value'</span>, descending<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"📊 Summary by Category (using Polars):"</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(polars_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>📊 Summary by Category (using Polars):
+shape: (3, 5)
+┌──────────┬────────────┬───────────┬────────────┬───────┐
+│ category ┆ mean_value ┆ std_value ┆ mean_score ┆ count │
+│ ---      ┆ ---        ┆ ---       ┆ ---        ┆ ---   │
+│ str      ┆ f64        ┆ f64       ┆ f64        ┆ u32   │
+╞══════════╪════════════╪═══════════╪════════════╪═══════╡
+│ B        ┆ -8.891075  ┆ 71.484926 ┆ 80.052876  ┆ 169   │
+│ A        ┆ -15.96373  ┆ 72.111341 ┆ 71.58636   ┆ 162   │
+│ C        ┆ -16.406938 ┆ 67.127646 ┆ 89.458846  ┆ 169   │
+└──────────┴────────────┴───────────┴────────────┴───────┘</code></pre>
+</div>
+</div>
+</section>
+<section id="interactive-visualizations-with-plotly" class="level2">
+<h2 class="anchored" data-anchor-id="interactive-visualizations-with-plotly">Interactive Visualizations with Plotly</h2>
+<section id="time-series-data" class="level3">
+<h3 class="anchored" data-anchor-id="time-series-data">Time Series Data</h3>
+<div id="15cc59fc" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Time series plot</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>fig_ts <span class="op">=</span> px.line(df_pandas, x<span class="op">=</span><span class="st">'timestamp'</span>, y<span class="op">=</span><span class="st">'value'</span>, color<span class="op">=</span><span class="st">'category'</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                title<span class="op">=</span><span class="st">'Time Series Data by Category'</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>fig_ts.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+        <script type="text/javascript">
+        window.PlotlyConfig = {MathJaxConfig: 'local'};
+        if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+        </script>
+        <script type="module">import "https://cdn.plot.ly/plotly-3.0.1.min"</script>
+        
+</div>
+<div class="cell-output cell-output-display">
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.0.1.min.js" integrity="sha256-oy6Be7Eh6eiQFs5M7oXuPxxm9qbJXEtTpfSI93dW16Q=" crossorigin="anonymous"></script>                <div id="7cd240a6-0f92-4d55-82e3-41db9269a887" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("7cd240a6-0f92-4d55-82e3-41db9269a887")) {                    Plotly.newPlot(                        "7cd240a6-0f92-4d55-82e3-41db9269a887",                        [{"hovertemplate":"category=B\u003cbr\u003etimestamp=%{x}\u003cbr\u003evalue=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"B","line":{"color":"#636efa","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines","name":"B","orientation":"v","showlegend":true,"x":["2024-01-01T00:00:00","2024-01-01T01:00:00","2024-01-01T05:00:00","2024-01-01T10:00:00","2024-01-01T12:00:00","2024-01-01T13:00:00","2024-01-01T15:00:00","2024-01-01T17:00:00","2024-01-01T18:00:00","2024-01-01T19:00:00","2024-01-02T05:00:00","2024-01-02T06:00:00","2024-01-02T09:00:00","2024-01-02T10:00:00","2024-01-02T12:00:00","2024-01-02T13:00:00","2024-01-02T15:00:00","2024-01-02T17:00:00","2024-01-02T20:00:00","2024-01-03T00:00:00","2024-01-03T01:00:00","2024-01-03T02:00:00","2024-01-03T08:00:00","2024-01-03T09:00:00","2024-01-03T10:00:00","2024-01-03T12:00:00","2024-01-03T19:00:00","2024-01-03T20:00:00","2024-01-03T21:00:00","2024-01-04T00:00:00","2024-01-04T01:00:00","2024-01-04T03:00:00","2024-01-04T12:00:00","2024-01-04T15:00:00","2024-01-04T19:00:00","2024-01-04T20:00:00","2024-01-04T21:00:00","2024-01-05T01:00:00","2024-01-05T05:00:00","2024-01-05T10:00:00","2024-01-05T11:00:00","2024-01-05T18:00:00","2024-01-05T19:00:00","2024-01-05T20:00:00","2024-01-05T23:00:00","2024-01-06T01:00:00","2024-01-06T03:00:00","2024-01-06T06:00:00","2024-01-06T17:00:00","2024-01-06T18:00:00","2024-01-06T23:00:00","2024-01-07T00:00:00","2024-01-07T04:00:00","2024-01-07T09:00:00","2024-01-07T13:00:00","2024-01-07T21:00:00","2024-01-07T22:00:00","2024-01-07T23:00:00","2024-01-08T00:00:00","2024-01-08T03:00:00","2024-01-08T05:00:00","2024-01-08T06:00:00","2024-01-08T17:00:00","2024-01-08T22:00:00","2024-01-09T03:00:00","2024-01-09T04:00:00","2024-01-09T05:00:00","2024-01-09T06:00:00","2024-01-09T09:00:00","2024-01-09T10:00:00","2024-01-09T12:00:00","2024-01-09T14:00:00","2024-01-09T15:00:00","2024-01-09T23:00:00","2024-01-10T02:00:00","2024-01-10T04:00:00","2024-01-10T07:00:00","2024-01-10T09:00:00","2024-01-10T13:00:00","2024-01-10T16:00:00","2024-01-10T17:00:00","2024-01-10T18:00:00","2024-01-10T23:00:00","2024-01-11T08:00:00","2024-01-11T11:00:00","2024-01-11T16:00:00","2024-01-11T18:00:00","2024-01-11T19:00:00","2024-01-11T21:00:00","2024-01-11T23:00:00","2024-01-12T06:00:00","2024-01-12T09:00:00","2024-01-12T16:00:00","2024-01-12T17:00:00","2024-01-12T18:00:00","2024-01-13T01:00:00","2024-01-13T02:00:00","2024-01-13T09:00:00","2024-01-13T14:00:00","2024-01-13T15:00:00","2024-01-13T20:00:00","2024-01-13T22:00:00","2024-01-14T00:00:00","2024-01-14T03:00:00","2024-01-14T04:00:00","2024-01-14T05:00:00","2024-01-14T07:00:00","2024-01-14T08:00:00","2024-01-14T09:00:00","2024-01-14T17:00:00","2024-01-14T18:00:00","2024-01-14T20:00:00","2024-01-14T21:00:00","2024-01-15T01:00:00","2024-01-15T12:00:00","2024-01-15T20:00:00","2024-01-15T22:00:00","2024-01-15T23:00:00","2024-01-16T02:00:00","2024-01-16T04:00:00","2024-01-16T07:00:00","2024-01-16T09:00:00","2024-01-16T18:00:00","2024-01-16T19:00:00","2024-01-17T00:00:00","2024-01-17T02:00:00","2024-01-17T08:00:00","2024-01-17T09:00:00","2024-01-17T11:00:00","2024-01-17T14:00:00","2024-01-17T15:00:00","2024-01-17T17:00:00","2024-01-17T18:00:00","2024-01-17T20:00:00","2024-01-17T23:00:00","2024-01-18T02:00:00","2024-01-18T04:00:00","2024-01-18T09:00:00","2024-01-18T10:00:00","2024-01-18T12:00:00","2024-01-18T13:00:00","2024-01-18T14:00:00","2024-01-18T17:00:00","2024-01-18T21:00:00","2024-01-18T22:00:00","2024-01-19T00:00:00","2024-01-19T02:00:00","2024-01-19T03:00:00","2024-01-19T07:00:00","2024-01-19T08:00:00","2024-01-19T11:00:00","2024-01-19T12:00:00","2024-01-19T17:00:00","2024-01-19T19:00:00","2024-01-20T00:00:00","2024-01-20T03:00:00","2024-01-20T05:00:00","2024-01-20T06:00:00","2024-01-20T07:00:00","2024-01-20T08:00:00","2024-01-20T09:00:00","2024-01-20T15:00:00","2024-01-21T00:00:00","2024-01-21T01:00:00","2024-01-21T04:00:00","2024-01-21T05:00:00","2024-01-21T08:00:00","2024-01-21T14:00:00","2024-01-21T18:00:00"],"xaxis":"x","y":{"dtype":"f8","bdata":"Tr5pWVreE0BhuSiPDa0MQOnUPfPYmzRACLH08AEWREAJHA\u002fQlfdCQHtWyUgszTJAvmt5fEpIEMDM0UH85BwmwCRanCb9IjTAQXOUQD4hQcBcnrY+1zhMwP4tuXcGO0\u002fAKv+hcEFTS8DxH1XsZTZHwPiLLoy7RUzAm817IA4JU8Cvll5iGt1VwHa1ZArPllPAkjZCushTWMBzBZm70cZXwMgQWzsqL1zAVct2UMBfW8DaJxaOM7FZwHunIukYd1rAfg7ItRajWcBeurdNaWVYwBEMDMys3VbApnXIWTr2VcB8inTFGpNXwLhY4Ypl6lLAMZ7gpgwCTsD3IYPbpH9TwBbbkS3uC1jAINy8\u002fMswVsDpzo4uSpFTwJN0jo+aUlXATeQTuk4kVsD2obBfUGNZwGgRijY6jV7AI8XpU34XXMBe+Ll\u002fw6dbwGoY3eKlO1rAhkyfXqh6WcCEecSL35BZwPM0KPUuwFfAv\u002fHzUu4LWMC7HkLIUwtYwNk7eVbKk1PA\u002frmi6txdXMAsY3JBNlVawMLFCGdxIV3AHYyZNB57XMD+OlYOc51fwESeixHpf17ANnYRIS60WcDnnm8sejlXwI5RQ9ZbK1XAt91RRmltUMC4g+KpdQpRwPRnsTJCMFfAYGXZM0SHVsBl1JUuL9ZVwK68IfrykkXAruV3yW7OUMByY4aJTbJPwEw4kPjRDlLAybFLpm+sUcB+hrC7LodRwIoMOSvMFlLAvHI3G0rDTsD9C2V56zBQwM8wvlmBP1HAAdIaUl3tT8AyDyzO\u002fWAxQCEZITUubgNA0Fk\u002fc+VkOkAWAvBhd7D4v7gkrbwnghJAZjpfWlp1F8CW8bHNjhglwJVDnzRgEDHAlCKn+HuAEUDV59P\u002fIBAXwMqyydnSNiTAZCEmB5f5IsDLWfxNNGItQLR9lMhKGyhA9rakkLXMM0DxMGS\u002fw94jQNWvLONYXEDAkJYFevgwQcBA6Vwe7YBCwJ+j0nDMHUjAV+gWdkXORMDUTyPxVsA5wP11WoeWr0HAprsYB\u002fy5QsCQENr6ERI\u002fwPXWAy+DEDfAxvYu7fb1MMAeqty5KlENwIu6snsXdB\u002fAQR5SxdLBJkC8zlRdpWNAQMNq1raLzENAgmTfgGc\u002fQkCe2McOwTdDQNtID7Los0NALHfov7WtRkBlHH6Z0vpQQJz2mxb88lBAwPN2gIPKTUButvUmv2dKQLUKWP2nz0hAshGc8opF+T80zd7SvsQrQLKwCtghcyxAwYU1Z2vPF0CwLWiBxGI5QO\u002fpdYj1JkJAWrHaglpUQUAUmJpW2uc7QKS8A\u002fEQ41lAKDSzWcHdV0Bo6ruEM35HQET6Dycn9ElAECqlcYuRTEDk3xjt59xSQBRsHah5o1RAwo\u002fe7z10U0DTg\u002fTCcYxWQDKNUiFpEFFA94wHQsQTUUCPT+HUyhFQQMa5ZFsINE1AQ4gUDq73UUB2H57bJqRGQPgbLio1pFFAJagkN\u002fWWVEAmKCdiDOlZQDQ5Um13TF5A+TwVJCGtXUDq8WIo85FiQMAGoSicWGFAHYUhPu+7X0BQTLLTZ\u002fZZQCjSKSEkg19AypaA0Y+yX0Bdt6lA5etbQM6CJomy4VxACgzxr5JoV0BzzYBntiVUQB2VpZuhdFBAYjNRyM6vUkBc0c64ddBLQJR5wyvKwjtAXo+zYGHhR0DKiMJSu2FEQIeOq0Kgc0VAMFTomtjjREBETWdJAclDQJvhr7REdDBAR\u002f\u002fwruGgU0BaCQXwVT1RQCgDNn+5rkdAMVS\u002fZj2SQEBUtt5RyV1AQIRUrmSY1E9AbjZo2UwCSEA="},"yaxis":"y","type":"scatter"},{"hovertemplate":"category=C\u003cbr\u003etimestamp=%{x}\u003cbr\u003evalue=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"C","line":{"color":"#EF553B","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines","name":"C","orientation":"v","showlegend":true,"x":["2024-01-01T02:00:00","2024-01-01T03:00:00","2024-01-01T14:00:00","2024-01-01T16:00:00","2024-01-01T20:00:00","2024-01-01T21:00:00","2024-01-01T23:00:00","2024-01-02T00:00:00","2024-01-02T01:00:00","2024-01-02T02:00:00","2024-01-02T04:00:00","2024-01-02T07:00:00","2024-01-02T08:00:00","2024-01-02T14:00:00","2024-01-02T18:00:00","2024-01-02T19:00:00","2024-01-02T21:00:00","2024-01-03T03:00:00","2024-01-03T06:00:00","2024-01-03T13:00:00","2024-01-03T14:00:00","2024-01-03T16:00:00","2024-01-03T17:00:00","2024-01-03T23:00:00","2024-01-04T05:00:00","2024-01-04T10:00:00","2024-01-04T11:00:00","2024-01-04T13:00:00","2024-01-04T14:00:00","2024-01-04T16:00:00","2024-01-04T23:00:00","2024-01-05T02:00:00","2024-01-05T03:00:00","2024-01-05T07:00:00","2024-01-05T12:00:00","2024-01-05T16:00:00","2024-01-05T17:00:00","2024-01-06T02:00:00","2024-01-06T04:00:00","2024-01-06T08:00:00","2024-01-06T09:00:00","2024-01-06T10:00:00","2024-01-06T15:00:00","2024-01-06T16:00:00","2024-01-06T20:00:00","2024-01-06T21:00:00","2024-01-06T22:00:00","2024-01-07T01:00:00","2024-01-07T02:00:00","2024-01-07T03:00:00","2024-01-07T05:00:00","2024-01-07T06:00:00","2024-01-07T10:00:00","2024-01-07T11:00:00","2024-01-07T18:00:00","2024-01-07T19:00:00","2024-01-08T02:00:00","2024-01-08T08:00:00","2024-01-08T09:00:00","2024-01-08T11:00:00","2024-01-08T15:00:00","2024-01-08T18:00:00","2024-01-08T19:00:00","2024-01-08T20:00:00","2024-01-08T21:00:00","2024-01-08T23:00:00","2024-01-09T00:00:00","2024-01-09T02:00:00","2024-01-09T07:00:00","2024-01-09T08:00:00","2024-01-09T11:00:00","2024-01-09T18:00:00","2024-01-09T19:00:00","2024-01-09T22:00:00","2024-01-10T01:00:00","2024-01-10T05:00:00","2024-01-10T10:00:00","2024-01-10T11:00:00","2024-01-10T19:00:00","2024-01-10T22:00:00","2024-01-11T00:00:00","2024-01-11T01:00:00","2024-01-11T02:00:00","2024-01-11T04:00:00","2024-01-11T13:00:00","2024-01-11T14:00:00","2024-01-11T17:00:00","2024-01-11T20:00:00","2024-01-11T22:00:00","2024-01-12T00:00:00","2024-01-12T02:00:00","2024-01-12T03:00:00","2024-01-12T04:00:00","2024-01-12T05:00:00","2024-01-12T08:00:00","2024-01-12T14:00:00","2024-01-12T15:00:00","2024-01-12T21:00:00","2024-01-13T03:00:00","2024-01-13T06:00:00","2024-01-13T10:00:00","2024-01-13T11:00:00","2024-01-13T12:00:00","2024-01-13T13:00:00","2024-01-13T21:00:00","2024-01-14T01:00:00","2024-01-14T02:00:00","2024-01-14T10:00:00","2024-01-14T11:00:00","2024-01-14T14:00:00","2024-01-14T15:00:00","2024-01-14T16:00:00","2024-01-14T19:00:00","2024-01-14T23:00:00","2024-01-15T00:00:00","2024-01-15T02:00:00","2024-01-15T06:00:00","2024-01-15T07:00:00","2024-01-15T08:00:00","2024-01-15T09:00:00","2024-01-15T10:00:00","2024-01-15T14:00:00","2024-01-15T16:00:00","2024-01-15T17:00:00","2024-01-15T19:00:00","2024-01-15T21:00:00","2024-01-16T00:00:00","2024-01-16T05:00:00","2024-01-16T06:00:00","2024-01-16T08:00:00","2024-01-16T10:00:00","2024-01-16T12:00:00","2024-01-16T14:00:00","2024-01-16T16:00:00","2024-01-16T21:00:00","2024-01-16T23:00:00","2024-01-17T01:00:00","2024-01-17T03:00:00","2024-01-17T04:00:00","2024-01-17T05:00:00","2024-01-17T13:00:00","2024-01-17T19:00:00","2024-01-17T21:00:00","2024-01-18T00:00:00","2024-01-18T07:00:00","2024-01-18T11:00:00","2024-01-18T18:00:00","2024-01-18T20:00:00","2024-01-19T09:00:00","2024-01-19T14:00:00","2024-01-19T16:00:00","2024-01-19T18:00:00","2024-01-19T23:00:00","2024-01-20T10:00:00","2024-01-20T12:00:00","2024-01-20T14:00:00","2024-01-20T18:00:00","2024-01-20T19:00:00","2024-01-20T21:00:00","2024-01-20T22:00:00","2024-01-20T23:00:00","2024-01-21T02:00:00","2024-01-21T03:00:00","2024-01-21T09:00:00","2024-01-21T10:00:00","2024-01-21T11:00:00","2024-01-21T12:00:00","2024-01-21T15:00:00","2024-01-21T17:00:00"],"xaxis":"x","y":{"dtype":"f8","bdata":"WungtW0fJEAHf7Gzq0o5QPh+QCMi1vg\u002fttvIP9dlLMA5fmXtbJozwCqCAa9p3DXAV2dzr3K3QcBtHjsEQnBEwE4p\u002f+ZG4kPA5NVPeoyjScDnkXsJecNKwAJhwfMb+EXAVY8HuWIJRsDSWw8hGFtWwPFy7drS4FPA0JlGr4ehVMCMY68AfCBawO5v9DE0VlzAYoY6Fx\u002fsWcCELZqrO9xYwLyeq5dJoFvAd\u002fzh2teVXMBHZB192TFZwFiK481301LADq4bbkwHVMB0SYwxzbpUwCg6C5Z+BlbAWrBRDQ5NWcDXI66RMgNXwDudJ+bXg1fA4\u002fgJBOjHWsCuAsaVCmBZwDbISlct9lnAp4Fn1QK1YMCJ52Jx7gJbwIFTrQ0D6V\u002fAyDA5d4nAWcAYuw6BJIpUwCngsh29k1bATjWbrXG+VMCHHBshqwBWwCHxa9MX4VnA54toI3aaWcC5N5Rbvo9bwGLxkQdk11zAsdO9wtGSWcBOGVnQm5ddwCytnVjAhlrAxqPCWWaeXcC7jCb7vnVgwCLbThZh317ABZCqVhA\u002fXsDXLRMTWMRdwIHdLGmHjV\u002fAPHKVJ\u002fucWMDpwuO+N6pawBM9R9cjJlXAsM2cP3e8U8DeRaw5NBpQwBUyTyta7UPAE8ScX9YGSMAm1uV4NDVDwLgo5AxtkkPAI\u002fh3alLOR8CyR\u002fKNU2FPwFYHKtGsVE3ACnE3lKJCTMDQewgrwc9QwOk6nPyuYlTAXS8LG7N9U8DPtfk\u002fbH5JwKjgXiZ47yzAXY1IN37lCMC2VVp5D5QjQAtpyIU2IR1AesZfIsriHkC0MUXzYRQVQLNzBFK5BxbAOu6aU+htJUBSWpXrhZQswHJbLUjFYSvAXI1ooTitLcDaNUa0r5MjwCBfEJCJRCrAzuVXNAkPNkCztEOdy3UbQHpIuJDfdR5AD46D0ogPJUDYzBUXQ3o2wC3pU2uin0HAFyHW855mP8AUDfYz5NlGwFrL+folDUnAVUZz6MxlSMAk\u002f7xJBo5CwC1ttz7mwUbArI3tzRmvSMBRmImb9ihCwMQE8ZIGMUXAp\u002fP+KvEaQsDUW2SpJPE2wFiOlRpLpTDAdCEyRoXvOMCv+0yFlYk+wJIiEkUJvxbAXBh5D3+DM0DRSmTTwkhAQAt5NzJjlkJAmKadqKQMTUBFiVhUKb1HQOC0bFx9sktAP9RT8VzRTkCgTTvde2lNQDhYqJ+qi05A7IbEswdrSkA5D1peNeBKQH401v+sY0ZARHUS3MnaQ0ADfRUH3H9BQBRwsSbiqEJAkBGNv6vWNkAssIW6wm4EQHy4IZpd4jlAmRZ+SexIOEDTeX9ciCMsQH5nKSzQ\u002fiVA7+iRkMNKJkCvvNubZSVAQFsDtzs8REFAhwjfA2HRQUBQNXtTmSY8QLrQA3sz0kdA8lgUFhKxU0DbBurfQPRTQD9VLtW4RFRAlGjpG+RJS0CqGfCNtD5IQHFXFmjTqlFAFjYm2RgLVEDaLQv04JlSQA0vLiWMvVNAWvfzjtUxUUB8roGQaqBRQDz\u002fYNQCzk1AoOsFluDySkChfIJxK8JUQNAGvKAsXWFAgX3xGGiLY0An+QXUxcxcQGzU5wLtvFZASpHDJocaU0A6QcNDhExQQMs8JW51WUxAEjJWbiPbRkCMaf7wtP1HQAx9UuGXvENABFwX2rFrP0DMKNGXKe48QAnOzG5550JASOVNjDgmUUDJ+pizv\u002fJTQN2kgItrckpA1YRWgtp2S0D3dw0JScZEQGzhbI8UvERAChTbp2giTECUi+azcIVMQKXx2zczQ1FAso1CcBdjTEA="},"yaxis":"y","type":"scatter"},{"hovertemplate":"category=A\u003cbr\u003etimestamp=%{x}\u003cbr\u003evalue=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"A","line":{"color":"#00cc96","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines","name":"A","orientation":"v","showlegend":true,"x":["2024-01-01T04:00:00","2024-01-01T06:00:00","2024-01-01T07:00:00","2024-01-01T08:00:00","2024-01-01T09:00:00","2024-01-01T11:00:00","2024-01-01T22:00:00","2024-01-02T03:00:00","2024-01-02T11:00:00","2024-01-02T16:00:00","2024-01-02T22:00:00","2024-01-02T23:00:00","2024-01-03T04:00:00","2024-01-03T05:00:00","2024-01-03T07:00:00","2024-01-03T11:00:00","2024-01-03T15:00:00","2024-01-03T18:00:00","2024-01-03T22:00:00","2024-01-04T02:00:00","2024-01-04T04:00:00","2024-01-04T06:00:00","2024-01-04T07:00:00","2024-01-04T08:00:00","2024-01-04T09:00:00","2024-01-04T17:00:00","2024-01-04T18:00:00","2024-01-04T22:00:00","2024-01-05T00:00:00","2024-01-05T04:00:00","2024-01-05T06:00:00","2024-01-05T08:00:00","2024-01-05T09:00:00","2024-01-05T13:00:00","2024-01-05T14:00:00","2024-01-05T15:00:00","2024-01-05T21:00:00","2024-01-05T22:00:00","2024-01-06T00:00:00","2024-01-06T05:00:00","2024-01-06T07:00:00","2024-01-06T11:00:00","2024-01-06T12:00:00","2024-01-06T13:00:00","2024-01-06T14:00:00","2024-01-06T19:00:00","2024-01-07T07:00:00","2024-01-07T08:00:00","2024-01-07T12:00:00","2024-01-07T14:00:00","2024-01-07T15:00:00","2024-01-07T16:00:00","2024-01-07T17:00:00","2024-01-07T20:00:00","2024-01-08T01:00:00","2024-01-08T04:00:00","2024-01-08T07:00:00","2024-01-08T10:00:00","2024-01-08T12:00:00","2024-01-08T13:00:00","2024-01-08T14:00:00","2024-01-08T16:00:00","2024-01-09T01:00:00","2024-01-09T13:00:00","2024-01-09T16:00:00","2024-01-09T17:00:00","2024-01-09T20:00:00","2024-01-09T21:00:00","2024-01-10T00:00:00","2024-01-10T03:00:00","2024-01-10T06:00:00","2024-01-10T08:00:00","2024-01-10T12:00:00","2024-01-10T14:00:00","2024-01-10T15:00:00","2024-01-10T20:00:00","2024-01-10T21:00:00","2024-01-11T03:00:00","2024-01-11T05:00:00","2024-01-11T06:00:00","2024-01-11T07:00:00","2024-01-11T09:00:00","2024-01-11T10:00:00","2024-01-11T12:00:00","2024-01-11T15:00:00","2024-01-12T01:00:00","2024-01-12T07:00:00","2024-01-12T10:00:00","2024-01-12T11:00:00","2024-01-12T12:00:00","2024-01-12T13:00:00","2024-01-12T19:00:00","2024-01-12T20:00:00","2024-01-12T22:00:00","2024-01-12T23:00:00","2024-01-13T00:00:00","2024-01-13T04:00:00","2024-01-13T05:00:00","2024-01-13T07:00:00","2024-01-13T08:00:00","2024-01-13T16:00:00","2024-01-13T17:00:00","2024-01-13T18:00:00","2024-01-13T19:00:00","2024-01-13T23:00:00","2024-01-14T06:00:00","2024-01-14T12:00:00","2024-01-14T13:00:00","2024-01-14T22:00:00","2024-01-15T03:00:00","2024-01-15T04:00:00","2024-01-15T05:00:00","2024-01-15T11:00:00","2024-01-15T13:00:00","2024-01-15T15:00:00","2024-01-15T18:00:00","2024-01-16T01:00:00","2024-01-16T03:00:00","2024-01-16T11:00:00","2024-01-16T13:00:00","2024-01-16T15:00:00","2024-01-16T17:00:00","2024-01-16T20:00:00","2024-01-16T22:00:00","2024-01-17T06:00:00","2024-01-17T07:00:00","2024-01-17T10:00:00","2024-01-17T12:00:00","2024-01-17T16:00:00","2024-01-17T22:00:00","2024-01-18T01:00:00","2024-01-18T03:00:00","2024-01-18T05:00:00","2024-01-18T06:00:00","2024-01-18T08:00:00","2024-01-18T15:00:00","2024-01-18T16:00:00","2024-01-18T19:00:00","2024-01-18T23:00:00","2024-01-19T01:00:00","2024-01-19T04:00:00","2024-01-19T05:00:00","2024-01-19T06:00:00","2024-01-19T10:00:00","2024-01-19T13:00:00","2024-01-19T15:00:00","2024-01-19T20:00:00","2024-01-19T21:00:00","2024-01-19T22:00:00","2024-01-20T01:00:00","2024-01-20T02:00:00","2024-01-20T04:00:00","2024-01-20T11:00:00","2024-01-20T13:00:00","2024-01-20T16:00:00","2024-01-20T17:00:00","2024-01-20T20:00:00","2024-01-21T06:00:00","2024-01-21T07:00:00","2024-01-21T13:00:00","2024-01-21T16:00:00","2024-01-21T19:00:00"],"xaxis":"x","y":{"dtype":"f8","bdata":"CqY+8jzzNkC3DjPuUDNCQHSwSPGhCUZAEjBjk7SwQ0Atx5umLmdGQErmlp3fwUFAEJY+ZoovNcCOAErAp8JHwBrma\u002fgTUU3AXOoQBXwEVMBhvhQPS0dbwAIIQye8oljAaJR9GG8HXsDkzXAN9n9cwDD68CcamFfAXiZ+Zb0yV8Ap1fMV3J1ewCFQhqDvX1nAXRket8+rVsDmHCFdqY1VwMPk2BDvR1PAtP0vWJLMU8A44qyincRYwFcqdK00UVnA9BSVWqdsWMALTq0pWjtWwJ89JPo4\u002fVXAwGIHukEfV8ACyWmrYwpawCjW8K4DgF3AcO82j5BoX8BJp+5bn+hgwLu6ToNTZ2DA375oqZMyW8DUSD4jl\u002f5fwLAS5JXHB2DATExywdN8XMDmomyqa6FZwKeaj0jsxVXAmGTE3dgZUcBXV8yOOP5UwMer03c2tVnAetr7ThZdXMBH07js\u002fC1bwA7JJ2Rrel3AZ6G0EPdoXcDFsY5DVmFdwH3Sp4ONFF\u002fAJiw56m7jWsCGs01Lna5cwIzRCI1rClvAO+lQZTd6XcCAQ0x0e4JbwP6hXTOoQVjAk9X5y9nsUsB8Z8aKmmFXwMzOe3rJxFPAotLQmZXDUMAcER9+f8xAwPCzeOGoFUXAVjk872ZwSsAAAbOo3iRJwMiJiCGXPlHAaY+OuiCJUsDh\u002fq9+GlpNwH2tSeE2LTTAvOhgRju2GUAKoqktPeIpQI7bQCUeTSNATErVfvb6CUA4\u002fhsGDCstQLg8eOqyDBnAns65iTdSKcDd6PlTJ1YqwGENurniASbA3rGJkNISI8AOFI5UWrAewA484XIoGPK\u002fNkXkgpd6MMDUhKCrczo1wIDEKoT5wjvA\u002fi3xcaI6GMAmfwOFhaoywFZU6YrZdydAdtu5F3ouAECeGScDzNxHwNb8TcnfXkjADN+V30FpR8BIOpPOwxlFwGAHB+33GkTA2IwA\u002fj4bR8BEX4fakhBDwBJ+cPSUzDDA3JUpjD\u002frQsDe6tOHZ\u002fQ\u002fwDpHPLMQJT3Ac3gXnmkjSMAA4ZwA7ONDwOmYvMjdkUXAaT2e5WASQcAcEcD+eCsxwHhnc6Q6\u002fi\u002fAHu8411bCCcChNzQpbkUiwOJ8ITfE\u002fghAYmZzVVbeQ0Ap6BHi8ARIQIxp9o7H8kFArkftYuZHT0A+1WobpA5IQOCFie0y8kNANZR0Wh4qRUC+GAGUIIchQLBq0FCBwuG\u002fdDKaysFOMUB6ujfTPRg4QEZ7b44xeTpAwoa4TCZnPUBpaz2+vJBAQJgHRlgRnkxAeyyO3PfFUUCWmf6gl2lUQAty4lJVxFVAroq4g9vqTUCr9Yux5FpQQAWzCLu4lVFAWhhCZb\u002fPVUAfMAmyEVtQQKWd4rsCkFJAIKpDREfqTUBtr8gSPzBQQDhSrGPRT05A8a22\u002f5MHTUA29IGn8LBOQKLyXQgtWlFAHLyrqXcNYEDsGU7c\u002fNtgQAscpva1OGJAmnFUcdOiWkAEpzvzocFbQOLGPBhw4mFAhojnLs4oYEDyCQUwcg9cQHbcUh2coVdA\u002fm8Bjk3SVUANtm4bZ2NUQGWiU23xOFBAAip9aIh7UUC+wP3\u002fKihQQLKvh4RZo0ZACRectq3eQ0BgQ483PrRHQPzMs46\u002fpEpA013+0agcRUB2neh1Edb0P9FwVZ8n8S1AkJtv+xJZQUAloxvMQK06QFq3y\u002f76uC9AnzZ8GP82SEDmN9aduVZNQF4qjQhRGEFA"},"yaxis":"y","type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"timestamp"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"value"}},"legend":{"title":{"text":"category"},"tracegroupgap":0},"title":{"text":"Time Series Data by Category"}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('7cd240a6-0f92-4d55-82e3-41db9269a887');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
+</div>
+</div>
+</section>
+<section id="feature-correlation" class="level3">
+<h3 class="anchored" data-anchor-id="feature-correlation">Feature Correlation</h3>
+<div id="3db5afa4" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot with proper size values</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>fig_scatter <span class="op">=</span> px.scatter(df_pandas, x<span class="op">=</span><span class="st">'feature_1'</span>, y<span class="op">=</span><span class="st">'feature_2'</span>, </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                        color<span class="op">=</span><span class="st">'category'</span>, size<span class="op">=</span><span class="st">'score'</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                        hover_data<span class="op">=</span>[<span class="st">'timestamp'</span>],</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                        title<span class="op">=</span><span class="st">'Feature Correlation (Interactive)'</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                        size_max<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>fig_scatter.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.0.1.min.js" integrity="sha256-oy6Be7Eh6eiQFs5M7oXuPxxm9qbJXEtTpfSI93dW16Q=" crossorigin="anonymous"></script>                <div id="e357686e-14dd-4ece-8739-941dd9cd2c9e" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("e357686e-14dd-4ece-8739-941dd9cd2c9e")) {                    Plotly.newPlot(                        "e357686e-14dd-4ece-8739-941dd9cd2c9e",                        [{"customdata":[["2024-01-01T00:00:00"],["2024-01-01T01:00:00"],["2024-01-01T05:00:00"],["2024-01-01T10:00:00"],["2024-01-01T12:00:00"],["2024-01-01T13:00:00"],["2024-01-01T15:00:00"],["2024-01-01T17:00:00"],["2024-01-01T18:00:00"],["2024-01-01T19:00:00"],["2024-01-02T05:00:00"],["2024-01-02T06:00:00"],["2024-01-02T09:00:00"],["2024-01-02T10:00:00"],["2024-01-02T12:00:00"],["2024-01-02T13:00:00"],["2024-01-02T15:00:00"],["2024-01-02T17:00:00"],["2024-01-02T20:00:00"],["2024-01-03T00:00:00"],["2024-01-03T01:00:00"],["2024-01-03T02:00:00"],["2024-01-03T08:00:00"],["2024-01-03T09:00:00"],["2024-01-03T10:00:00"],["2024-01-03T12:00:00"],["2024-01-03T19:00:00"],["2024-01-03T20:00:00"],["2024-01-03T21:00:00"],["2024-01-04T00:00:00"],["2024-01-04T01:00:00"],["2024-01-04T03:00:00"],["2024-01-04T12:00:00"],["2024-01-04T15:00:00"],["2024-01-04T19:00:00"],["2024-01-04T20:00:00"],["2024-01-04T21:00:00"],["2024-01-05T01:00:00"],["2024-01-05T05:00:00"],["2024-01-05T10:00:00"],["2024-01-05T11:00:00"],["2024-01-05T18:00:00"],["2024-01-05T19:00:00"],["2024-01-05T20:00:00"],["2024-01-05T23:00:00"],["2024-01-06T01:00:00"],["2024-01-06T03:00:00"],["2024-01-06T06:00:00"],["2024-01-06T17:00:00"],["2024-01-06T18:00:00"],["2024-01-06T23:00:00"],["2024-01-07T00:00:00"],["2024-01-07T04:00:00"],["2024-01-07T09:00:00"],["2024-01-07T13:00:00"],["2024-01-07T21:00:00"],["2024-01-07T22:00:00"],["2024-01-07T23:00:00"],["2024-01-08T00:00:00"],["2024-01-08T03:00:00"],["2024-01-08T05:00:00"],["2024-01-08T06:00:00"],["2024-01-08T17:00:00"],["2024-01-08T22:00:00"],["2024-01-09T03:00:00"],["2024-01-09T04:00:00"],["2024-01-09T05:00:00"],["2024-01-09T06:00:00"],["2024-01-09T09:00:00"],["2024-01-09T10:00:00"],["2024-01-09T12:00:00"],["2024-01-09T14:00:00"],["2024-01-09T15:00:00"],["2024-01-09T23:00:00"],["2024-01-10T02:00:00"],["2024-01-10T04:00:00"],["2024-01-10T07:00:00"],["2024-01-10T09:00:00"],["2024-01-10T13:00:00"],["2024-01-10T16:00:00"],["2024-01-10T17:00:00"],["2024-01-10T18:00:00"],["2024-01-10T23:00:00"],["2024-01-11T08:00:00"],["2024-01-11T11:00:00"],["2024-01-11T16:00:00"],["2024-01-11T18:00:00"],["2024-01-11T19:00:00"],["2024-01-11T21:00:00"],["2024-01-11T23:00:00"],["2024-01-12T06:00:00"],["2024-01-12T09:00:00"],["2024-01-12T16:00:00"],["2024-01-12T17:00:00"],["2024-01-12T18:00:00"],["2024-01-13T01:00:00"],["2024-01-13T02:00:00"],["2024-01-13T09:00:00"],["2024-01-13T14:00:00"],["2024-01-13T15:00:00"],["2024-01-13T20:00:00"],["2024-01-13T22:00:00"],["2024-01-14T00:00:00"],["2024-01-14T03:00:00"],["2024-01-14T04:00:00"],["2024-01-14T05:00:00"],["2024-01-14T07:00:00"],["2024-01-14T08:00:00"],["2024-01-14T09:00:00"],["2024-01-14T17:00:00"],["2024-01-14T18:00:00"],["2024-01-14T20:00:00"],["2024-01-14T21:00:00"],["2024-01-15T01:00:00"],["2024-01-15T12:00:00"],["2024-01-15T20:00:00"],["2024-01-15T22:00:00"],["2024-01-15T23:00:00"],["2024-01-16T02:00:00"],["2024-01-16T04:00:00"],["2024-01-16T07:00:00"],["2024-01-16T09:00:00"],["2024-01-16T18:00:00"],["2024-01-16T19:00:00"],["2024-01-17T00:00:00"],["2024-01-17T02:00:00"],["2024-01-17T08:00:00"],["2024-01-17T09:00:00"],["2024-01-17T11:00:00"],["2024-01-17T14:00:00"],["2024-01-17T15:00:00"],["2024-01-17T17:00:00"],["2024-01-17T18:00:00"],["2024-01-17T20:00:00"],["2024-01-17T23:00:00"],["2024-01-18T02:00:00"],["2024-01-18T04:00:00"],["2024-01-18T09:00:00"],["2024-01-18T10:00:00"],["2024-01-18T12:00:00"],["2024-01-18T13:00:00"],["2024-01-18T14:00:00"],["2024-01-18T17:00:00"],["2024-01-18T21:00:00"],["2024-01-18T22:00:00"],["2024-01-19T00:00:00"],["2024-01-19T02:00:00"],["2024-01-19T03:00:00"],["2024-01-19T07:00:00"],["2024-01-19T08:00:00"],["2024-01-19T11:00:00"],["2024-01-19T12:00:00"],["2024-01-19T17:00:00"],["2024-01-19T19:00:00"],["2024-01-20T00:00:00"],["2024-01-20T03:00:00"],["2024-01-20T05:00:00"],["2024-01-20T06:00:00"],["2024-01-20T07:00:00"],["2024-01-20T08:00:00"],["2024-01-20T09:00:00"],["2024-01-20T15:00:00"],["2024-01-21T00:00:00"],["2024-01-21T01:00:00"],["2024-01-21T04:00:00"],["2024-01-21T05:00:00"],["2024-01-21T08:00:00"],["2024-01-21T14:00:00"],["2024-01-21T18:00:00"]],"hovertemplate":"category=B\u003cbr\u003efeature_1=%{x}\u003cbr\u003efeature_2=%{y}\u003cbr\u003escore=%{marker.size}\u003cbr\u003etimestamp=%{customdata[0]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"B","marker":{"color":"#636efa","size":{"dtype":"f8","bdata":"gEZeiWNgQUDmZfLDdBZdQEcngRMOzHBA3VZT3CMlVkALHZzOpVBqQKCqkF+M01tAzfpZAaneZUD\u002f1WmbXpJTQNw9ZeYvI1hAQm\u002fbDRchCECNAAO\u002fh28yQPaczkm8+kVAKoWGlyLZaUBq3hDdBppGQDTE1ZG6W1ZAtF7IqTm8UECKA0x1efrlP8uJQ5xi4ExA0IhmyBbeQkCZTjVpzydWQLpZooa73TpAk7zlu3W1JECNoix5pDhhQEiQmxSTOWdAlcGfo6LIVEDXSY8g8ExTQCGcYrkIJEFAv1VQTK7OVECMpKABSZ1rQDmlQKZ5BGNAKvXy1f+LSEDgdZPXsNQwQOLzFZEkVxdAsJCv86QjUED9Km629FBSQCYyoK3xYlVAFBXyI3AXYEDjCvfEB6NSQEtHdaXz6mFAt3CbuxryZkDo1+kZ+UddQAsDRu4vHFhAaTd1QwGCRUA1Wtoq19QTQOnP1Jo5VV5Ag+hvUQbYUUAgOOiyzJVdQIRhJe1wpGdAIh8kVda\u002fQUCsIegN068iQBRolyQWlGJAskawXalySkCwnfvAAaljQCt2MFjS1VVA4oyAfpWySECEe6Jok3xWQNyNR0o2gmhAQMrgvhcvXEDTBcMqTmVGQN92UFCiYkxANbfuD64XOEAv72VxsJY6QOI2vS29JVpAaiYuYRAMOED3unzLSthAQHzskSMkvERAD2kEkySmYkDEf\u002fWUKCVdQCCpw3PTFllAL8Hk0GEqbUCP9smImnZoQF8SDdyLzFdA51nSmWWHW0CSCdd2WWpVQM4LcV2pEUVAEduxUXVtUUAZkI55mHtGQJT2pGiELjVAS8P+1y9oZEDTozAagVslQKKQXbgm9CpAH32WvhInCEBXU0GMCL3TP5qGvr0j\u002fC5AmUBCWwarT0C4D03\u002fVqlkQMG0LSfoXVVAXWjtpnnAQEDNQw6vvRdZQGnk8pUqIWBAYl6cKX6oN0AqFXqUdhsaQAekYX87T09AG2G+Ezub+D+KunfoneBXQCjlp+vraEhATyeJcX+vWUC5fYTtacVoQGkvw9+TJjNA181lBidZG0CcIKdFzudFQEM0iLJwZURACQYlBAi0cUB3m5BV\u002fPE0QOCOFQqbjmFAfxjX3Mq0YUCMZjVnLQFAQAjLt5BG1UNAiZ2ezU4gSEBubTPP7uVEQOxSF1Rj3V9ARI7EQCDhWkA68RfD2hthQA0is+YCpS1AhQe70O7yHkCHoi6cvyYoQKEQ6MT+xDdAZEcpwDU5M0C+NZ05\u002fgRrQBXnK5F7t1hAU92gupXsUEBhF5tLP2hXQEvz5D3D2kpA5j5afYqmFEBzeBav0\u002fBAQFxlapfYqUNAiaAy6xxAXUCYg4sJzDZVQEQGZbdGrTdAnTii\u002ftSAQEDadSKbDv9OQJuZczoPKi9A6eUFxR5KDkDHC1W99VbYP1NqEIxrdjZAraL4xnpYa0ByKM+7XC9MQAuswvwAjkJActiPh0AvE0DQRoeLVjBFQND6jbqPN2RAHhpaw37qUUC0RT4JN40QQHpYxJ3JmkxAWTI+1Fv6IEBR33qLhglYQPJbJTLpZ2FAaSMH2M9hXUC5sHJnN4djQBHUnrmm7E5AYtREGyG8X0A8iEf8S2RRQG+bfPu\u002f0lVAT8Na\u002fDhUSEDMoPmSKs1gQE5vxSjCFC5A\u002fkQvFPdiTUC\u002fA85jicxdQFl23PcCnU1Awfq8ZelSRECZCA8Gxb5jQLx4zm56DwpAM55MVlp7U0D6f+P+uA49QA3JzwBpC0JAenMJr0mydUDVT8w2O4lLQITMXG4HpF9AM5YiRxrtWUA="},"sizemode":"area","sizeref":1.542857729750393,"symbol":"circle"},"mode":"markers","name":"B","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"QBTGjQCK1r8lE0\u002fI6ArPP0PHmJISM6i\u002fwJVi+4xn8b+bN+vzszT8v6AJ17ZgTvI\u002fMWJCdJr1zL9QQkkkep6+P8yvCO5kIuo\u002fP3iHKhTM4z+x5vRbgkzLv1wGUh2rEPI\u002fMjLKw1le7D+5SIP4iHv2v3AVlp4ErvC\u002fcCQkZ2Ny9D8frLDoLUfBP3E6jPT83\u002f6\u002f1abtJ7vE6z+sMJ1gK9TmPzFcbuGjEqg\u002fFlLjsxuS8z\u002f5H+NtvOj6v\u002fkMfLQ4I\u002fy\u002fjHzBEJfs678Ae1YyGznTv\u002fxWgq8M2OU\u002fKJ+6umk2xb9RqprnMGvqvwuBBRt0rPI\u002fZWzvhg\u002fw+T+oqs+fPO+yP0zLH+sQeOk\u002fAzdXSnAZ2L8KR0V4xQLuPxHGEYgu4uq\u002fZEpIg9EUxT9FdpITd1bxPyOO5NwQHvS\u002fIq1AfHs75j8hP62EJfnwv0rTrJT3Ovq\u002fh7ubPmWa3T8jq1OoELnOP4bXWsPi\u002fNo\u002f+veVY1bh5j9xEFpzMnDrP+DcqeIsxuS\u002fklQh0Y3U97\u002fBHWw7xzuZPzjvLOM9WMs\u002fyn1z2qcP0T+xRHZz\u002fVfzP1FpOnsL5tm\u002fZlo9Dmfh7j\u002ft6Zxu9kfxP4uKxANFN\u002fu\u002f+OndsvoD2r+kVl6Di63zvz9sK9UImO8\u002f63Ewzfz39D9R7tacBXjMv+MMLIIQXc2\u002fhD2wQ0NC0T+UrN7iwXDjPy0m3d5EOO6\u002fzu8Q\u002fw6w1D\u002f9bRf+uvzzP5D9wfb+eqm\u002f1\u002f54d6P\u002f1z\u002fJaBCUerv1vwg5gSrmtOe\u002fd2oXVJFDjb9P\u002f2x4ZwXmv87fmxpYYPA\u002f4NijLgDR1z\u002f01Zawq0XivwfccsV+z9m\u002fisKRT4mB\u002fD+i7gZ4WDrRv\u002fqBR04rDba\u002fd10uON3pxr+DcVtoJ\u002fLjPzCma5D2iuK\u002fbD2MeZdn7j9JqNr+PabXvzo0OhhWgfC\u002fMO2C2wLw4L9a5FyAthHyP0CDywmsvLi\u002fvJvzwex08T+kWFEy6vDrP\u002fazDZKSIPq\u002fbsFzch5U4r\u002fGfRx9rp3pPwWH4fiE8OW\u002fuIWgKyS51D+fVXoqBxvOPxQtK2RY1ek\u002f2MwkZKju878FCH\u002fy4cIAwBDCFiuPl9C\u002frbm2tPzD5D+2U0xuSKngP+RwoHBFG+s\u002fxU6MHl2P8z9cbkQr9Oq2vw\u002fgUe2\u002fNdc\u002fxemHBqLH9D+jBgDVLI\u002fwv9OZr2+8Uci\u002faryioCbX4r+YPvHpjQeDP95jomK1X\u002fE\u002f4cC5\u002f8qC4T90zkul10nJP\u002fdIeF4AOvG\u002fqEWUF5lj5T+tVC7hLbHov++9AGEQFfA\u002fkICZ7YD29j\u002fhgaFtV8HWP4NdK9YV2b4\u002faGKwN3N18L9GJH5W+Nf4v7+RoCa5sPS\u002fq5as5iX+AcBe3Ei7EtvlvwhHY0mTBPI\u002fsfWGOwaC8r9dlI7xVIb4v\u002frSX+RjL\u002f2\u002f2R2wAAOhAkAAKTDlVsLlPy5MFbbpF9k\u002fdgvHRlw\u002fob+WZXQau9vrvxH45gDOZdk\u002fX6OIxHY7+D9tEbE4bU7jv70\u002fdq6UY\u002fm\u002fnYFofLIvwb+ePwD7GKLhPzpTVK3F\u002fe2\u002faIAJhc9b9j8aodTy3Ybiv9tT0U6dNN4\u002fR1Sdfc\u002fRwT\u002f1KCIeIq3ZPyESTeQN+t8\u002fVhaZ7gJC079qPzJM5Z7Rv4EJOPYw7+G\u002fyvkIqpCA6r+TJFZilMfgPzDK24zDBt0\u002fLjZ4rG75+T+teH++Vpf4vyj\u002fBgjWItE\u002fAg709hVa9z9wLVmaCPf6vweVnnsVnP6\u002f8l1XCCLF4r8flhaT1UjJvwZWF37v5eO\u002ftfP47KVx5j\u002f8ui59q5vdP1ajCykCrNC\u002ftQozhsCz778="},"xaxis":"x","y":{"dtype":"f8","bdata":"hIpTerCO6r+aaLPk0ZnyP2Y6\u002fk6K3fa\u002fqjNLwO5n8j+sD6z4GuXfvyqGrwECNvc\u002fHfRDxtqS+z\u002fjQxdtflEBQEgmwA5PQvK\u002f2qw6opnx6L8zZedkIwDxPw0KkiCyCvg\u002f0AOtZtzY\u002fj8QoFxpf3G\u002fP041uZhVGAFArrA2\u002f++XAUBrrXxhkN\u002fgP2BOs65e0NI\u002fHBhoSf2d8T9SNBXEEbgXQOg6Kc8Aldk\u002fSFt8\u002fLtA078of8SBxh8AQFfMcutFuvE\u002f2077uKrWBMAEQALvLRsTwME8F9GfWf0\u002fvEI0czsm2L8Vl4+tbf3rP7pHFgHM\u002ftA\u002fqFI9YwF32r+s4Grt9V\u002fQv8C1G4+Ixuc\u002fAtc9xCx59b\u002fvdEfz9jEEQO8rCERGFu4\u002fCmVoVAvY5D\u002fywbc84Pjiv2rqwnAYBe4\u002fGfrcEAWxCkBSil5Q1znnv86QuRr4RgpALiKR3cbd87+TFfIjEJYBwEMn0BTZvQZAQuccrIFuC0CuoK+6v8oEQKw6iX8MH\u002fa\u002fTkE1Ck5++r9OzUrzXeICQIi\u002ff6Dqmtq\u002fhry585MH4r8uCm6NNRX4v+TslpISmAtA0qHafuhkEkBuxID6YwD5v8ezM7e9zQPAkhwi54cqB8Dw\u002f0WTZUUBQIAWnAzXktU\u002ffOH4c8x35T+sSVXIz+X6v54FhEvhCwBAwCKPoMYABUCw8NTf65MDQAERI2c9ZxZAACyxTPk0CUDg6rbHBmMGwIicvV0O+gFAegESiVGE+j9ooDppLVTPvygS682p8N8\u002fsniNIn2+7j8z0KZP4SQPQFUtfb085fg\u002fNjSUmDll\u002fr8Cb3Vig4Dkv2Aem6GEgQnAchxOgKxQD0DVDvfaLqoKQICrHfH7r8K\u002ftOgD2rTL9T8gKW0SVQ7Yv0Xlixy82glAtPGa9JzpAkC6mFxT+\u002fflv1BSk+ilXP8\u002fptonad2x+78eDoCqZjoBQHjkF\u002fE+dPK\u002ftLF+q20b+L+whtI2Q5X1v+baD8krytA\u002fHvThck\u002fb\u002fD9DH9fXc7TjP8xriua7s+U\u002f8Gn2+x9nBkC8p0h6XuPzPwbxBsQrx+W\u002fptgoW6YP678CdG6Fq0DzP6jkptWPNATA5E0o0Q7o9z\u002f3tFc8kxjzP0S\u002f9fck\u002feg\u002fgJwvZ4ygyr\u002fSC7zu2NPqv6T6iJFkiPO\u002fFCxjzqgSAUDgErs\u002fZWu1v0aoZYCcIAJA3eZoXq9HCEB8ZEiMMk4ZQAsWNTz2fRJAj\u002fPfFwpbDkBmkQ7pR5cKQE6XtUuuRv6\u002fNsrsVTAK8z8QLCLnuij6P5Md\u002flDdF+w\u002fwnUrEr4ZBkCdwELDkafvP5ksFxqlAgtAHM0ye4CWAEATLsPznrgHQASrTV1GVwVAjPYACxKJ+T\u002flrrNzqiwEQDLfyBrZOPW\u002f26+JkvAg9j+k4vgKObj3P4Ep3Z+ZL\u002fA\u002fsEeG0FZ7+D+oCFBcNmEKQEIVN4TnU98\u002flDSwzOdXEkCAQ5NGNovjv4o7OdWhOfs\u002fVC70gp4h2T9oHpI8GmrlP32uR7ZA5QxAzndG\u002f0gq6j9V6ZtgDeIHQHya+BzM28Y\u002foEphDM7T1L\u002fi3EpNqzcEQLeWrx6RSwDA4d4nVdLmC0A4Es+cYVb0P\u002fjylRD86vs\u002fFMPcpVni87\u002fc4H1hJxLJP4mMg29jMwhAZxtaOfAG9D8Y\u002fLW9cMn2v56MB7z2ZwJA+m64QerN9D\u002fLZhq8LkcDwOAkGlWObgzAFxXJnaqB9D\u002f4h3E8DJwJQHypDW1wfv0\u002fzKWQek3d+j98wta3oqjSvzeSnYfHKQbA9kGhjegT2j+biLfEQM0IQGJibUK2vwNAYJnNqsPs3b8="},"yaxis":"y","type":"scatter"},{"customdata":[["2024-01-01T02:00:00"],["2024-01-01T03:00:00"],["2024-01-01T14:00:00"],["2024-01-01T16:00:00"],["2024-01-01T20:00:00"],["2024-01-01T21:00:00"],["2024-01-01T23:00:00"],["2024-01-02T00:00:00"],["2024-01-02T01:00:00"],["2024-01-02T02:00:00"],["2024-01-02T04:00:00"],["2024-01-02T07:00:00"],["2024-01-02T08:00:00"],["2024-01-02T14:00:00"],["2024-01-02T18:00:00"],["2024-01-02T19:00:00"],["2024-01-02T21:00:00"],["2024-01-03T03:00:00"],["2024-01-03T06:00:00"],["2024-01-03T13:00:00"],["2024-01-03T14:00:00"],["2024-01-03T16:00:00"],["2024-01-03T17:00:00"],["2024-01-03T23:00:00"],["2024-01-04T05:00:00"],["2024-01-04T10:00:00"],["2024-01-04T11:00:00"],["2024-01-04T13:00:00"],["2024-01-04T14:00:00"],["2024-01-04T16:00:00"],["2024-01-04T23:00:00"],["2024-01-05T02:00:00"],["2024-01-05T03:00:00"],["2024-01-05T07:00:00"],["2024-01-05T12:00:00"],["2024-01-05T16:00:00"],["2024-01-05T17:00:00"],["2024-01-06T02:00:00"],["2024-01-06T04:00:00"],["2024-01-06T08:00:00"],["2024-01-06T09:00:00"],["2024-01-06T10:00:00"],["2024-01-06T15:00:00"],["2024-01-06T16:00:00"],["2024-01-06T20:00:00"],["2024-01-06T21:00:00"],["2024-01-06T22:00:00"],["2024-01-07T01:00:00"],["2024-01-07T02:00:00"],["2024-01-07T03:00:00"],["2024-01-07T05:00:00"],["2024-01-07T06:00:00"],["2024-01-07T10:00:00"],["2024-01-07T11:00:00"],["2024-01-07T18:00:00"],["2024-01-07T19:00:00"],["2024-01-08T02:00:00"],["2024-01-08T08:00:00"],["2024-01-08T09:00:00"],["2024-01-08T11:00:00"],["2024-01-08T15:00:00"],["2024-01-08T18:00:00"],["2024-01-08T19:00:00"],["2024-01-08T20:00:00"],["2024-01-08T21:00:00"],["2024-01-08T23:00:00"],["2024-01-09T00:00:00"],["2024-01-09T02:00:00"],["2024-01-09T07:00:00"],["2024-01-09T08:00:00"],["2024-01-09T11:00:00"],["2024-01-09T18:00:00"],["2024-01-09T19:00:00"],["2024-01-09T22:00:00"],["2024-01-10T01:00:00"],["2024-01-10T05:00:00"],["2024-01-10T10:00:00"],["2024-01-10T11:00:00"],["2024-01-10T19:00:00"],["2024-01-10T22:00:00"],["2024-01-11T00:00:00"],["2024-01-11T01:00:00"],["2024-01-11T02:00:00"],["2024-01-11T04:00:00"],["2024-01-11T13:00:00"],["2024-01-11T14:00:00"],["2024-01-11T17:00:00"],["2024-01-11T20:00:00"],["2024-01-11T22:00:00"],["2024-01-12T00:00:00"],["2024-01-12T02:00:00"],["2024-01-12T03:00:00"],["2024-01-12T04:00:00"],["2024-01-12T05:00:00"],["2024-01-12T08:00:00"],["2024-01-12T14:00:00"],["2024-01-12T15:00:00"],["2024-01-12T21:00:00"],["2024-01-13T03:00:00"],["2024-01-13T06:00:00"],["2024-01-13T10:00:00"],["2024-01-13T11:00:00"],["2024-01-13T12:00:00"],["2024-01-13T13:00:00"],["2024-01-13T21:00:00"],["2024-01-14T01:00:00"],["2024-01-14T02:00:00"],["2024-01-14T10:00:00"],["2024-01-14T11:00:00"],["2024-01-14T14:00:00"],["2024-01-14T15:00:00"],["2024-01-14T16:00:00"],["2024-01-14T19:00:00"],["2024-01-14T23:00:00"],["2024-01-15T00:00:00"],["2024-01-15T02:00:00"],["2024-01-15T06:00:00"],["2024-01-15T07:00:00"],["2024-01-15T08:00:00"],["2024-01-15T09:00:00"],["2024-01-15T10:00:00"],["2024-01-15T14:00:00"],["2024-01-15T16:00:00"],["2024-01-15T17:00:00"],["2024-01-15T19:00:00"],["2024-01-15T21:00:00"],["2024-01-16T00:00:00"],["2024-01-16T05:00:00"],["2024-01-16T06:00:00"],["2024-01-16T08:00:00"],["2024-01-16T10:00:00"],["2024-01-16T12:00:00"],["2024-01-16T14:00:00"],["2024-01-16T16:00:00"],["2024-01-16T21:00:00"],["2024-01-16T23:00:00"],["2024-01-17T01:00:00"],["2024-01-17T03:00:00"],["2024-01-17T04:00:00"],["2024-01-17T05:00:00"],["2024-01-17T13:00:00"],["2024-01-17T19:00:00"],["2024-01-17T21:00:00"],["2024-01-18T00:00:00"],["2024-01-18T07:00:00"],["2024-01-18T11:00:00"],["2024-01-18T18:00:00"],["2024-01-18T20:00:00"],["2024-01-19T09:00:00"],["2024-01-19T14:00:00"],["2024-01-19T16:00:00"],["2024-01-19T18:00:00"],["2024-01-19T23:00:00"],["2024-01-20T10:00:00"],["2024-01-20T12:00:00"],["2024-01-20T14:00:00"],["2024-01-20T18:00:00"],["2024-01-20T19:00:00"],["2024-01-20T21:00:00"],["2024-01-20T22:00:00"],["2024-01-20T23:00:00"],["2024-01-21T02:00:00"],["2024-01-21T03:00:00"],["2024-01-21T09:00:00"],["2024-01-21T10:00:00"],["2024-01-21T11:00:00"],["2024-01-21T12:00:00"],["2024-01-21T15:00:00"],["2024-01-21T17:00:00"]],"hovertemplate":"category=C\u003cbr\u003efeature_1=%{x}\u003cbr\u003efeature_2=%{y}\u003cbr\u003escore=%{marker.size}\u003cbr\u003etimestamp=%{customdata[0]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"C","marker":{"color":"#EF553B","size":{"dtype":"f8","bdata":"VTyCQ\u002fuDOkBXFw39WgxQQGmTdgaGi15APgpr40dcWUCjE8Sopqg5QE0eAgbQCG5Aw+w8I\u002feqLEDIPLl+DX1iQJviDYejjk5AYaFQHNSibECWBGN\u002fIxslQOy2+ozNmGtA3WjvgfsENkDCPYlDVn40QLzK8tveAUhAKpX+N2MRcUC8VHjhiQwyQHjOW\u002fwZB2tA\u002f9agt6H0Q0Cm9ltpPCRjQCIk+zT8B1dARmtGdDn5LEDu23u5F71OQDIeyUsosD5AFDDLt2rtXECKM9iPsRNDQAbtJ9du1E9AhLG9cZ6eUkDVCYMttjZlQIrS4s35vHBANxd0hdkjVUDwiOr+pJhXQH+KHpZaXVtAOTlnykFvSEA4hGKbEdJjQFP42mBTUzlAuujoFYpcXkAosM5j78FbQIdZoNZyXGRAX2bwLFRjEkCHnOB3p6pcQH1v1kV\u002fk+E\u002fvUp6ZS8XQkDo3p+9GYxmQGvhntAo9TdAACHpCBuZVkAz0AXQ7j5jQLXb\u002fxOtfGlAtRQiRXxUMkAb9cTz34FdQLSGN+aUCzlAxOkK5GTqNUDOPnaZT4lfQNMmuURAoFVAPzyXe1mHNEC2\u002fwnOUi1tQJcXu+CLHQhAS7xVOZEWQkBJY+WIGwM8QGZilctI1FVAuQpFbrGGQ0BZfazHxxliQEODoHWNEVVAwdj6IEf9T0BXp4ixuCFSQNaPgk4vP25AaAtNt4P5cEBqmrXvUdldQAc9pScMcjRAtrBpfgUNK0A7ISW8bzozQEsSgqV9olxA7Aqfxe2TSkAZ7Y\u002fJ2cdKQJiy3Hc25FFA8H55WbSPXUBOPuhki4FUQHZMB8TnOANAZDj73SxuTkDna7xiETBiQBOrOcTJ6zFAUo7bc6aAIEA+jBGO7SIwQET60RVk81hAO2RBn9qAKkB+D63V9Y4fQJ+bicLrE15APW7UIFd86T8hmFnZ9ldrQC6lyYAMOVBAy1sf4EKiW0DevyD8941TQIWoQrSVFVVAH85yu\u002fL4S0DdzAbKAORcQGj4OSEOw0BATz0rHfOvV0A05QoBwyNcQJhqNHfPl1BAvZLNPkegNkAOFLduF5xjQOaoS3XomWBAfSQ\u002fGLgcSkBJs3NK\u002fGhUQBL+t7KU9CtAM\u002fmr928G+z\u002fiztgavgRiQIwvqAaPh0JA7Chf8y1MakA69f5GBkZYQACnqNc1B2RAyAVI2taMUkDLtzYUZkBUQAdmcR4CCVNAFf30QrM6M0ApyIZHSvZVQO52EmYFEWNA09KSeGtYXEBymW3ut801QOxkMvYXfnBAfuk2XHh5U0DFhAqlMOdKQHqFNzROOWlADPGmULahNUAwQU93KRZSQO01\u002fms5WGNAPFuDSnaFWEDpm99eoORgQMFdmkdowVBAb\u002futIjBrbED45qq\u002fm8pDQC3j7C0PlFJA9iHSyL7kZEC64WSIR2BRQJPcWE8bQFBAFnVVhfLjTUCU\u002f9OpwNpYQJd1xk2VqWFAkba93g1JQEDDsnTcsXpCQPhO+qxG8mZALwJXloc6TUDtdZTQOFRkQFryHAnICVVAfkxA\u002frXNXkBXrpv4mZdAQJYGpkB3b0tA2feZzkdYBUCsO1KxbL80QBJ9Mu+EekdAQh7ygOTDLkC+\u002fdqMOpn\u002fPye9hLNRlGNAKPgtBt87YUDhpMrnhMBRQLjwVDMRFGNAvG8z3MpAY0D3TusA1spoQCw+XVnBdnBA5XmH+rIgVEA9\u002fh0+cvJXQD0C7eVco2FAT51Qgz9FREAZEpFBzqdZQJrIDoLDT0JA6j0GvaoxRkAoLcGPldPxPxNzeoaWcEJAItTd\u002fHTxV0A="},"sizemode":"area","sizeref":1.542857729750393,"symbol":"circle"},"mode":"markers","name":"C","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"Tt\u002fitywFxz8vMLY5OG7Vv8ZEPogMHPW\u002fs4eHKnkI8T++GsdljpT0P2adssHP\u002fvA\u002fhW4t0A5B5D9cPBqlwWz4v2Vflka2pa2\u002fTYfx5QYx6j9Vcv3PvpXcPxakKc4glrS\u002f4u3Vj+\u002fJ3b8Q0gOnq7TQv0NSOE2X0eS\u002fUCoEMl2y8D8IyHgcMx3SP8r6dFis3uW\u002fSXNBGjpv7T+zwOl90MDpv554jPoMGfC\u002fdt6DqFjw\u002fr9m96NKflHzvwQlc72kPuW\u002f2Pb\u002ffmMq47+1xYELxuXXvxrVqo3xxvK\u002f0r+bYMjG8D9xfRbT2P3VPzdiKhsWkea\u002fBntfIH6u4j\u002fxYastwjfrv2M3Y7ruz7o\u002fk4odagBs7r+TOJlMstgLwGI7pFiXLvU\u002fkbc4Pusb8r84toYLzBPgP64kfLvmIvA\u002f73lEyWCz17+017Tlg6zqv0oICt22EOa\u002fmvhTlED5az9pHKCzByvqP6IF9I0RG+g\u002fb1MsFJ6a9b\u002fVSsJcEez3P00swbg0sNm\u002fvdFLqHo34T+UdVrrbo2oP6vizEVcEPe\u002fvxkqJ0l4xj\u002f\u002fAcEqsTrXv68dRF+UWsY\u002f61FK1N3FwL\u002ft6gcJLEgAwHn2k\u002fygweQ\u002fmPRCOMpVvb9LboA1ukPkP3UPH8Trj\u002fo\u002fxSwOnXBp5b\u002fmSxbBhGruPx42eONQ89W\u002f\u002faQUIhIt4D\u002fEX0kefJ6dvy12j0F9cs2\u002fyDcREJul5j+zyBgnem\u002fdP8MKHSQsc98\u002fRCjfotF98L+1s2LpnTzov9PHDjivTuS\u002fiONuyzPd7z8RCYnEASbGv572bn5FvN+\u002fulPDbtel3j8V7SSOWTcDQMr10KdDJZe\u002fhSdvfolr5781Rwpp7aTvPwXVhBDllN+\u002fXzwkU5t63L+RQL8N96HRP6iU4t7e\u002ffw\u002fbLF4VZIT9T874yEuna\u002fZP6sqULOsLso\u002frWsvu0fM4z8iiedYV7gHQJHZQF3i3O2\u002fkHc5jpQL8r\u002ftTu5zjw7iP90MaZR6EuC\u002flRTkQosVyz8aC8o8JdrtP5sKBBn3+rq\u002fF0DXxUZ+\u002fD+cj\u002fk4mQ\u002f0v5LhuJXFp9K\u002fp9BT370PxL9wqu7rNH3yv09htr0nbtQ\u002fTfmPVTT01z\u002fSQpqVdTu2vyFyrJJiRNA\u002fGv2F851F9r8CQvcAEtTqv39bJ+VnadO\u002fYe2VEG9N2D+4HU0p78WoP\u002fGjwh9bAOa\u002fB\u002fnIxtrBwL84IrszbbLcP1v6KuhU9tw\u002fX8fn7CQZwb9k4kuMrs4AwCi\u002f1drtB+6\u002fPUpeQtid5D\u002fJkV4aT7PRP7XFPjKl0uS\u002fuZ7kol0r8T\u002fs1oUiAqGfv4gO1xWd0O4\u002fzuoO9w6w0z98bRyElUexP+13Gp8owNw\u002fLvcxLPlu8b+V8TWg\u002fibQv2pBwwVkzNU\u002fOIXY2pYP4j9vhLiH4fT6v8J+3FEvwPA\u002fMV1icEAW5z+vy9K916L0P5neiBDDTPq\u002fDL7oDkvX+D\u002fypM0yIm3TvzUam78tO+O\u002fyzk+tIa4xT+JblpnWWfmv7JQdLrxaZS\u002fasgftXA05z9fXFhEPWriP5yzLUTELci\u002fwzXxZR\u002fC478BW9P0GL3oP5jmzzrIi\u002f0\u002fQE9s\u002fnuKxD9T9git9L30v7foXAvH6Oc\u002fIOv6u16x6T+XD4Sg+Bz9PzOHklUdzvO\u002fsolX8tse1D\u002f+e+Vj2ofaP1Uty3JL+Pa\u002fd6G6XjJf0z+J7aNHvhfhv+vjORDtBuI\u002fyF2+vMqc8b9AKWFV9cLmv4ZGIzEPSui\u002fE0NaDoIhoT\u002f9Qcp1XvEAQGVw9qH7wvK\u002fLYQ6DEm887+1AtQ8bD3mPyRK34Ucofs\u002fjdgTINTJ5b8="},"xaxis":"x","y":{"dtype":"f8","bdata":"cRMTtu+qEECMHsiKa7vYP8BOQhrrIKy\u002fiMdEh00PAEAY9tOAGSbav1w2EYYttuA\u002fznFQQlVUA0D4S1zEP0fmv3lNPmnGnQHA2WOERfY+FUBfKPL7lGEFQGIfCbWY5u8\u002f0O\u002fnngB7zT+AFdnfES2Nv\u002fRJkkGhK\u002fG\u002f0cW9IVQCDUCQ0xGetnT1Px7qq4GfeQBANIptKrZr0D+69SNUdmL5PzOkJfHJEPk\u002fllMNOk2kAECeOVyMOgr5vzycyTo3zcY\u002frPSHaRRH3b9kjba6OWjxv1gsMDFkoOI\u002fnFZRDHXUB0AA3HzNKh2Nv2JPetovUwtAUMYzZhMH7z8b8cHUqXvzP2iIDCPUy\u002fO\u002fBtvuJwZ8FEBME2vM2NcMwKDfcWjRHfk\u002fe8WvToOg9j+YCacactn4Pxh00Vmw+9G\u002fxCFHmTHW8j9bYsdc68YRQF6Do0RYWOE\u002fxEc+Yu7HDECCyWX0Wcfuv+BtA1fV4Lg\u002f0K08c8xewD8IaIq4mAr5P39Jc63PEgZAfwDkGc+2AUBliYm9gfoMQAAD75c1LHS\u002fVgcISGz\u002f+D9YzJO08lbFv+VBJSolPPE\u002f6MFN+LzoAEApQzuaS4niP\u002fBmXJLQk6A\u002fMk6czma7+T85aVuHPYL4P5RjtPjDEuS\u002fVog2oU3AA0D4lhmU13D6PysGNCdQ+PA\u002fz6H7MND16T+C9GCZuYDqP0j8SxgfPwFA8oojyK758D94xqb+etL\u002fP2aP+l5+gvI\u002f3EHnMLJ9EkDyZ48qVmcGQNvOrIKTmwxA6KvHZpjCwz\u002fmvWsbdIQDQOgECjLzhvO\u002f+Ig1auBm87\u002fLb0n6xmwBQIrpSWHM1vo\u002fnphJdyB95b\u002foaTTS3gv0P\u002fhRjW754xJAet5oa8kXE0Bb7jyZJAwRQMDj9i418s+\u002f4AYW8KLQBECgYj3J1HXBPxKfjy4uWOc\u002f+vb3xDsT9j\u002fy6kJu+uQSQBDOwGnoP9M\u002ffMXE4slbCkAmOdodMQ\u002fZP55YRZOiLQtAoU7coG\u002f\u002fBsB02\u002fVqeSX9v3V+LzQFhwhAPUlSiASG4z+NVKK23LHsPwQOMp4icwRAdd+hB2Cm\u002fD\u002feQLK07nzuv1hgyhj\u002fHem\u002fCMHiDFhc+z\u002f6L8F1SNnhP4DdS0JeMfS\u002fGH+1gGrL8j9+\u002fa+rDj0DQMzINYU5qfq\u002f4U9v8X1RF0A+BvGAJr3jvxa3M85mpdc\u002fvLCnqwvAwj8IrINlK9G5P32Fr8jE3\u002fQ\u002foToejrck\u002fD8eJYsQ5rXqP1AD+23obbo\u002fAZkRwH8UFEDS0PmgrSgSQESxeQuVGfG\u002fPMwF5C\u002f62r\u002fEgWb+x9jSv8x1OygxctC\u002f9AtyJL+jAUDAPfw+f1+VvzjUBizkLOG\u002fPIbu6gHc0T801ikTnDDev45EBHrHqvI\u002fYlitj\u002fNM7r\u002fuoCaHPZ0IQAMyDdqZ8wxATHlG29NKBcDvuiAcLpr7P4o2lX0yueM\u002fOEhWSV\u002fE8z+KmmRBdIACQNTIdHGafsI\u002f7MuTq48C3j9wKbC6OHj\u002fP\u002fMq91F7hPY\u002feXYg0Uce7T\u002f\u002fPkx63+oOQBdCnjsUDPE\u002fugMlyvK7+T8lRBrvz0gHwHRsJcqquwBA8IuPy4C2wL+AHwhZcpDiv4C2T0n01JK\u002f2PaXP4wDDkAnjRgNVPoGwBoOSFvrrQJAXiIn8g4Y+D9Iu97jcP\u002fjP8QKfOwHzeE\u002fpP0ob21F9j\u002fg8BoFsiT6P+Bb+bDGZau\u002f7qRUqNKMAkDMwbyi3A\u002fNP7juGbD4SOq\u002fg+bGVY7w8j8G3VUQ+krnv27ZyGK9tP0\u002fHkFPIdxiBkDVqkSRg3AGQFTCe9ZJHdO\u002feIT3f9LXsD8="},"yaxis":"y","type":"scatter"},{"customdata":[["2024-01-01T04:00:00"],["2024-01-01T06:00:00"],["2024-01-01T07:00:00"],["2024-01-01T08:00:00"],["2024-01-01T09:00:00"],["2024-01-01T11:00:00"],["2024-01-01T22:00:00"],["2024-01-02T03:00:00"],["2024-01-02T11:00:00"],["2024-01-02T16:00:00"],["2024-01-02T22:00:00"],["2024-01-02T23:00:00"],["2024-01-03T04:00:00"],["2024-01-03T05:00:00"],["2024-01-03T07:00:00"],["2024-01-03T11:00:00"],["2024-01-03T15:00:00"],["2024-01-03T18:00:00"],["2024-01-03T22:00:00"],["2024-01-04T02:00:00"],["2024-01-04T04:00:00"],["2024-01-04T06:00:00"],["2024-01-04T07:00:00"],["2024-01-04T08:00:00"],["2024-01-04T09:00:00"],["2024-01-04T17:00:00"],["2024-01-04T18:00:00"],["2024-01-04T22:00:00"],["2024-01-05T00:00:00"],["2024-01-05T04:00:00"],["2024-01-05T06:00:00"],["2024-01-05T08:00:00"],["2024-01-05T09:00:00"],["2024-01-05T13:00:00"],["2024-01-05T14:00:00"],["2024-01-05T15:00:00"],["2024-01-05T21:00:00"],["2024-01-05T22:00:00"],["2024-01-06T00:00:00"],["2024-01-06T05:00:00"],["2024-01-06T07:00:00"],["2024-01-06T11:00:00"],["2024-01-06T12:00:00"],["2024-01-06T13:00:00"],["2024-01-06T14:00:00"],["2024-01-06T19:00:00"],["2024-01-07T07:00:00"],["2024-01-07T08:00:00"],["2024-01-07T12:00:00"],["2024-01-07T14:00:00"],["2024-01-07T15:00:00"],["2024-01-07T16:00:00"],["2024-01-07T17:00:00"],["2024-01-07T20:00:00"],["2024-01-08T01:00:00"],["2024-01-08T04:00:00"],["2024-01-08T07:00:00"],["2024-01-08T10:00:00"],["2024-01-08T12:00:00"],["2024-01-08T13:00:00"],["2024-01-08T14:00:00"],["2024-01-08T16:00:00"],["2024-01-09T01:00:00"],["2024-01-09T13:00:00"],["2024-01-09T16:00:00"],["2024-01-09T17:00:00"],["2024-01-09T20:00:00"],["2024-01-09T21:00:00"],["2024-01-10T00:00:00"],["2024-01-10T03:00:00"],["2024-01-10T06:00:00"],["2024-01-10T08:00:00"],["2024-01-10T12:00:00"],["2024-01-10T14:00:00"],["2024-01-10T15:00:00"],["2024-01-10T20:00:00"],["2024-01-10T21:00:00"],["2024-01-11T03:00:00"],["2024-01-11T05:00:00"],["2024-01-11T06:00:00"],["2024-01-11T07:00:00"],["2024-01-11T09:00:00"],["2024-01-11T10:00:00"],["2024-01-11T12:00:00"],["2024-01-11T15:00:00"],["2024-01-12T01:00:00"],["2024-01-12T07:00:00"],["2024-01-12T10:00:00"],["2024-01-12T11:00:00"],["2024-01-12T12:00:00"],["2024-01-12T13:00:00"],["2024-01-12T19:00:00"],["2024-01-12T20:00:00"],["2024-01-12T22:00:00"],["2024-01-12T23:00:00"],["2024-01-13T00:00:00"],["2024-01-13T04:00:00"],["2024-01-13T05:00:00"],["2024-01-13T07:00:00"],["2024-01-13T08:00:00"],["2024-01-13T16:00:00"],["2024-01-13T17:00:00"],["2024-01-13T18:00:00"],["2024-01-13T19:00:00"],["2024-01-13T23:00:00"],["2024-01-14T06:00:00"],["2024-01-14T12:00:00"],["2024-01-14T13:00:00"],["2024-01-14T22:00:00"],["2024-01-15T03:00:00"],["2024-01-15T04:00:00"],["2024-01-15T05:00:00"],["2024-01-15T11:00:00"],["2024-01-15T13:00:00"],["2024-01-15T15:00:00"],["2024-01-15T18:00:00"],["2024-01-16T01:00:00"],["2024-01-16T03:00:00"],["2024-01-16T11:00:00"],["2024-01-16T13:00:00"],["2024-01-16T15:00:00"],["2024-01-16T17:00:00"],["2024-01-16T20:00:00"],["2024-01-16T22:00:00"],["2024-01-17T06:00:00"],["2024-01-17T07:00:00"],["2024-01-17T10:00:00"],["2024-01-17T12:00:00"],["2024-01-17T16:00:00"],["2024-01-17T22:00:00"],["2024-01-18T01:00:00"],["2024-01-18T03:00:00"],["2024-01-18T05:00:00"],["2024-01-18T06:00:00"],["2024-01-18T08:00:00"],["2024-01-18T15:00:00"],["2024-01-18T16:00:00"],["2024-01-18T19:00:00"],["2024-01-18T23:00:00"],["2024-01-19T01:00:00"],["2024-01-19T04:00:00"],["2024-01-19T05:00:00"],["2024-01-19T06:00:00"],["2024-01-19T10:00:00"],["2024-01-19T13:00:00"],["2024-01-19T15:00:00"],["2024-01-19T20:00:00"],["2024-01-19T21:00:00"],["2024-01-19T22:00:00"],["2024-01-20T01:00:00"],["2024-01-20T02:00:00"],["2024-01-20T04:00:00"],["2024-01-20T11:00:00"],["2024-01-20T13:00:00"],["2024-01-20T16:00:00"],["2024-01-20T17:00:00"],["2024-01-20T20:00:00"],["2024-01-21T06:00:00"],["2024-01-21T07:00:00"],["2024-01-21T13:00:00"],["2024-01-21T16:00:00"],["2024-01-21T19:00:00"]],"hovertemplate":"category=A\u003cbr\u003efeature_1=%{x}\u003cbr\u003efeature_2=%{y}\u003cbr\u003escore=%{marker.size}\u003cbr\u003etimestamp=%{customdata[0]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"A","marker":{"color":"#00cc96","size":{"dtype":"f8","bdata":"wFirJgNVUEA8c3WLGqBmQJbp8NjGMlFA7Nbbt\u002fpsYkDnAJVxxJlBQOT9OGo+ADdAz0R90jI2RUBvzQ7pkWglQOK7fshiAF9AvvZRWascW0AKaQcRknpTQBolUDfjbjNAlMgG8lux\u002fT8Ef14eVudaQFVKaRKKUlBAIIl3YdglMkDpwnWfXR5LQOE0L9ELtVFA7QEqgyU0VkBdQ4rcoJhJQKM8DjD+qF5Azl7cSoVnXUCWIKtOv6xlQKZmTbcirDRACeWfADX5UkAvqxjGVUhIQLuFJHkMfmhAWPtmXIaMR0COEHrgsQBnQGBP4o+zkzpA6BtsbUZnSkAqGx8Oyb1mQOj1OExlVFFABa47IDp9U0A9A+FBbqtYQM4zp9N4hmJA61XsbGkiMEAqtdn3iahhQO4MQegFHy5Ao824buvPX0Bk+uE71BpHQPsGGQIHyUdAJF2k4\u002flsJEBEMW3igXZEQL\u002fRG40hdFtAMJyLOPPlNkDpOpbiabFeQEUT+tjFlVpAfDe7Bz1yGEBP+A9KGQlYQAfLcPAdz2ZA20WhRLEvMUCoSpXEQLRbQMtMUj6pLz1AFSJnSlPlX0CgEIfWdw5jQGV6nmYsHWZAoXytTRujUEB3PdNgbuwoQPGpiReWUF1ATAkv4w6O9T8BCvir\u002f4Y5QOljUF7L+DpAa8rpejUkOECc9zqUfn9EQOb5oblMrVJAYwid5dZbVkCtY2w\u002fVxlRQDBI8NSLwElASQiTcSexTUBy9nkjpDlNQAdDgxomLVNANGhMbtqAZEBX4g0k0hozQHBL3B0HbEtAecTCttcpR0BUbcj2wvE1QLeLqT5DvVFAoCRf6PUVU0A\u002fyazLrtJVQN+05YnJfk9AfCheVLaEUUCJ1IRg0NY7QLlPDamJQmNAv0NOfM+CAkDux0+RxOgyQN5NUG4RH2FAna7AnlZ4UkBql1Xrdj9WQDGS+xSx6mZAta9VX5N3BkBTp7HxXNJZQIcP32EUdlVAP9K2lCtMO0B8b3\u002f2P3BTQOR5+CuVN1JAwI871z3rL0ANSJqT0Z9XQJ\u002f\u002fTMO95lJAjzHmLhM4GkB04bsWemJaQBibfBNNdlpAlPjEK45UNECK+Rm+4nc8QIsggKDC\u002fihAHx\u002fUl8fgXkD3\u002f8tNTk07QB9HMvOaQUJAEX\u002f+ZZlZY0CGCyJMHahhQF6ejGBQzGVAIsZEDb7NJ0CYQ\u002fFipB9uQObl9Q3gB\u002fg\u002fsEDmOR2sEEBXSg+OHldaQJa4i9hEjlJApmI5f6+OOUA2tBLZX\u002fYxQAMltWTR7FNAXQiYDQeDJUC5IbUiwXcQQPkZ2VagkjRAeeddLaONUECQGVOLATpgQLSv1xjxuWNAlkJaUwftT0Dc63HjQUw6QLF3v9wcOltANtQ9FTR\u002fSkDkB0Skv+FOQBCYhlZQrmdANBk2DFKbIEAC5N+3LRM0QPQqAmChZEZAlxo4zzFpL0BXMRHMQUYwQKVgmlyrDk1ABPae7EUVX0D9orZydMVUQNJiczsxNzdAtVOEdAwUXkB0G7r\u002fMVPkP6WruClnbk9ADiTQLNMaW0BvbIcsQ9pRQJpSIxV+51NAuq8Ngh7zQEBggBZ1JvNSQG5Nc\u002fluCmRAAIKyGE7AOEBOrZT7oBokQHynLYDrHl9AspXbiK7iTUByUwFk8GM1QC0bJG\u002f98DJAzIdWeSd2S0DSjmIgj3NEQE\u002f\u002fOrihkWBAiFdVSrS9UUBozn0jqe1HQI94CxTIg1JA"},"sizemode":"area","sizeref":1.542857729750393,"symbol":"circle"},"mode":"markers","name":"A","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"S8tISLaZ\u002fz8KYdJoX+34vwyV+iPZn9m\u002fvZe9f7P73z+mMRjmBAvhP+b+ZxlSvu0\u002f6z96kSUK3b9gAtGA6yHBP9mZExR3COA\u002fn5c4qo1n2j\u002fepyYdZ5f1vyKjAsFxvOI\u002fnl2f1sBQ4L\u002fvfRsJfOADwDMBJH1QFtQ\u002fZoUgV6Vl6T\u002ftjp0OidDwv1lyAHsWIfG\u002fZV+K7E96AkAkFiS7jh75v6ZeJ7uij+C\u002fVY0kmqXF4T9PAHkbju7jv2Y7c\u002fT0vd+\u002f8i1X9cmExb95g+I4DoTmv0RuwSPo2wJACTQdG8Yz17+NVvw6WGThP3eXPmcM+vu\u002f0mls1o1K7D83GFGRuejqv7sBu1sY9IC\u002fEDenad7Y67\u002f9Jd+qQErzPxKkjrfs9dU\u002fSf9KtTOO0z+cyG7GG9vtPx8XTn6j9dk\u002fs6rPHcyB+D\u002f2qcGRh8HeP0SyOehZrd8\u002fdY4RXabE2j\u002fiQqDGWaDZP6EbSU8v5My\u002fd1hHul0Htz\u002fWwxL6ECXaPzdWVfUM28e\u002fTA\u002ftdpf1\u002fL9XWWEDe7revxb1w7rWW8A\u002fEBqJgZp+1z9\u002fO9LRZdPgv70AxHyObec\u002fDQb84THAxr+VBnhUHPPxP+xmhErxWfK\u002f8gTsJtui87+Fua2+gLvsPz+BawDLcMq\u002fZVeYfXa\u002f5r+wgG6tLf+yP5+k3F8MH+c\u002f3ErRjfI61L\u002f4Lju4ZHb5v+V+c\u002fYHEuI\u002fTXNO6bW40b8mjZcPlv+Zv7FEaHQ6xwNA1tHUEIF\u002f8b9zeM932cGYv8gJAxxE2tC\u002fBMVMjePL4D85WXpyzQrsv0zOobszSKM\u002f9GiuRzQDyT+Ojio6iwDxv7Ph3Oeujem\u002fCjPIUEHo1j\u002f0i3o1OSvZP8TyxOllzuU\u002f0ocMu5Vs8T++OjIGD1K9Py4\u002fYC6HVsm\u002fBgwhPsZ1AUAnvwGgPhvoP\u002fO7eagGWby\u002fAtTvS03U\u002fb8atMjO6dnsv5LKBTEp\u002ffi\u002fL3T0vY4DAEB8CoJhePLGP957nzAwDeE\u002f6O9uGWMH9j\u002f5x\u002ffbUN3oP3vS1HY7tNk\u002flymXeGlo+r84zTomBtGpv5MnwrmY\u002f\u002fA\u002fAXV4+BrgAcDwHzEUObnxP\u002fVcqQKVqOa\u002fB+q7+\u002fXk+L+R9zaC727RvwkCTX8uvfM\u002fZTLRSaFu8z\u002fBkJpcnevUv\u002f5\u002frfBdoeG\u002f5IVFZfrVwT8jiJKQhIAHQMRwX+pT4Ou\u002f\u002fqh1YyTR2T+7WNuLq\u002fzEvwO6EIVfWe2\u002fT+2oY\u002foGAEDu8kRsHrvcv01f82sXGfo\u002fIucEWfX70j9uImJ9DeHtv5wqOWwIPeI\u002fTu968itV5D+a+zbAxrrQv+aJ9s7HcvS\u002fHSf6ZkJT7L8Jie1sRG\u002fxPztBXaQsi\u002fg\u002fwMHzUeBHrj9WbIuUVhLdv3BdPrJLIPc\u002f2miIlwAs0L9ET1O6xrLhP+KEx5dAae6\u002f8JnHxyh\u002f778UQGppnhHvP8wA93v5l\u002f6\u002f6nWVsnJhxL+F\u002frLmrgPvv+iD+ZTCc8w\u002fICfv6qU8s7+zU97v4U2wPyfVxYBnTPM\u002fnx4ya\u002f2S2D+\u002fR+1FGizSv1tR5PAFZPI\u002fgLVvp0UL6D8tYZeONm3mvyD1E40yp84\u002fYTrt2UkG6b9Bx2ClFMgBQKWAddhihOe\u002fXBnSGLOp1r+mt+zZ5ZfzP+p+rTgKEmG\u002fcRVr7ra26L90r46PiT7vP\u002f73ZW0vqvE\u002fyXqF+P73+b+HJ3vTO3\u002fwP\u002fsww+tzybs\u002fLjk2Ggol\u002fz+IH3NU4a+4P1\u002fmV\u002fUnJOQ\u002f"},"xaxis":"x","y":{"dtype":"f8","bdata":"zqyDzC4GDUAQg2KiiFyxv8paq+hSB\u002f2\u002fSNTzSv1V8j+CS+NBM3sEQLkGYj7\u002foQtAWR5XJDvK8j8ENBX33DT0vxffyREtqQpA5r\u002fzuGED9r\u002fsUA4FM5fhPxHfEgiRUvY\u002fksOR+Ks0EMBoeIQa7wvyPyjEQIAPgu+\u002ffMS1tnrB0r+UkqFrIcXivyrAWjpq2+2\u002fqOU3e01LwL+Pj\u002fsFq635P3t7V2yBgPA\u002fUOdpt3yMAMBYkjS0VZkGQEmJDgQg\u002fP8\u002fxmtjizhPFkCo1QUIA3jXPzDbMX\u002fsDgZAwIWMqmjCyz9EK8kuQs8FQEqf6r9vn++\u002fA9XJpM5cB8DiNhASjC32v\u002fN3TJcwb+0\u002f4JWKvxEwvD82R5OeDv3nv4IizqAGbAzAmGDJ+\u002f7gxz9jti0ImFjqP3l\u002fpMGvkQ5AjoOPUH5j9T\u002fcGzLOhAHyP4S3XoSh4fI\u002f6rRcGzCV9z\u002fgyGejyiG3P8b8GnsKXOO\u002ffxAV22iGCkBatJE7Xz3rvxhVzQtaRAJAHoTV0jZKD0DU7OlKze4DQPC9tZavfgFA7s\u002f3j56j5r\u002fwOmy2pH77P0ACwbFBQ8i\u002fVLBv7\u002fO59D+KopS3LLz2P0QadR6mmwZAgGA0JqhmBUCGjfKncWsLQCymt7SJCec\u002fgIikdbM3BkDKeMlU3T3xvwITmt\u002fwvf+\u002f2OiBZINM\u002fz\u002feJLKFWUEFQKSh\u002fnhET+u\u002fET31lFlX+D++ZOUR9tD8vwAPcHhj\u002fJ2\u002fk8vhhudGD0D4FbxZd3S3P2KJdkXETOS\u002f++Cff3wuA8COdxGH4HIRQP4wrCbWDuC\u002f9RuzgMm2FUAEYsiEGxzaP2qlC2WUTQdAf2ICvt8+BUCPijxcnIzvP\u002fj31S6g\u002fwxAuJcgbCIb079E2pdjSyoHQDro7LlBMBLAEjcOaeu06L\u002fQxskGi1\u002f4PxY6Gy8YKPs\u002fgEMWzolxrL\u002fqM5Jp0FcEQH19vDrfVQbAWJgBjRVz9T\u002f4YtiyfD8OQITrbgWykPO\u002fuwu2l\u002fuU9j9g4Eegoh3PP+7Kdwtj+BLAWttHZ1ha+z+y0ZM9sCHzv8A60DHSzMK\u002fgNMXYrtP+z+ADjEeEhzZP8If0IZ6ixBAYEP6HTO0qr\u002fEbmvLTRrvP9TNjas92vC\u002fGnoEc1knBkBxvCxHTo\u002fyPz4z9gEMIvs\u002f2sN5Y7Qr2j9a2nD7nA7lv25mKIbchfi\u002f\u002f3mFsv1J7D97fRkhU1zyP2P+hDYN0\u002fE\u002fU90Iykc77D9sQq7dncHav\u002fOVMgXCLgBAH6FXIQz17T9unu+SNxYAQCiZHJbGccG\u002fRPD7VL1r9j+qallrDuUNQK6lKM8JPwRAHiM2pfwC97\u002fw4d800c+3v0CeZ7UiGKC\u002fJOZbFuw64z8IWbCb0i7ev3KuCrs5VwBAbraMY2EM9r\u002fG4okcvdXdPxIvZUKkKvc\u002fEc5lHweLAUAblMzL0qv4P8IVisaHdhJASMr4jz7XC8AAE4n+n9RqPwofw82bwOW\u002fIMw3Tot5CMALdLHm6hwMQF5D0V8RaOk\u002ffHGKYCSaC0CQkFfV4zbxPwxAtKJiHQtAaM7OW2NjAEAesi6ZxHAEQHx6ruV7dQhAtK9Ees4i+r97\u002f\u002fKx6JMDQAS+CVoEWQVAtuAcufC5+D\u002fILqXnD9jtv7Ayk+t\u002f8Os\u002f1rilyv1S7L9oE6GXRpXAP9yDYFxnAgRAf8t6b\u002fY3BkCWNAJguLMBwNXpVBu+dwRAjkLQ\u002fsfc9j\u002fK3fFx8KjyP5U83mluJ\u002fE\u002f"},"yaxis":"y","type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"feature_1"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"feature_2"}},"legend":{"title":{"text":"category"},"tracegroupgap":0,"itemsizing":"constant"},"title":{"text":"Feature Correlation (Interactive)"}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('e357686e-14dd-4ece-8739-941dd9cd2c9e');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
+</div>
+</div>
+</section>
+<section id="distribution-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="distribution-analysis">Distribution Analysis</h3>
+<div id="2308e336" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Box plot for value distribution</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>fig_box <span class="op">=</span> px.box(df_pandas, x<span class="op">=</span><span class="st">'category'</span>, y<span class="op">=</span><span class="st">'value'</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                title<span class="op">=</span><span class="st">'Value Distribution by Category'</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>fig_box.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.0.1.min.js" integrity="sha256-oy6Be7Eh6eiQFs5M7oXuPxxm9qbJXEtTpfSI93dW16Q=" crossorigin="anonymous"></script>                <div id="72ed6cd2-038f-447b-889f-7e4a1e29428f" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("72ed6cd2-038f-447b-889f-7e4a1e29428f")) {                    Plotly.newPlot(                        "72ed6cd2-038f-447b-889f-7e4a1e29428f",                        [{"alignmentgroup":"True","hovertemplate":"category=%{x}\u003cbr\u003evalue=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"","marker":{"color":"#636efa"},"name":"","notched":false,"offsetgroup":"","orientation":"v","showlegend":false,"x":["B","B","C","C","A","B","A","A","A","A","B","A","B","B","C","B","C","B","B","B","C","C","A","C","C","C","C","A","C","B","B","C","C","B","B","A","B","B","C","B","A","B","C","C","B","C","A","A","B","B","B","C","A","A","C","A","B","B","B","A","B","C","C","A","C","C","A","B","B","B","A","C","B","B","A","B","A","C","A","A","A","A","C","C","B","C","C","B","C","A","A","B","B","B","A","C","A","B","C","C","A","B","A","C","A","A","B","B","C","A","A","A","C","C","B","B","B","A","A","B","A","B","C","B","C","A","B","A","C","C","C","A","A","A","A","C","C","B","B","A","C","C","C","B","B","C","C","C","B","C","C","A","A","B","C","C","A","B","A","A","A","A","C","C","A","B","B","B","B","A","C","B","A","B","B","A","C","C","A","C","A","A","A","C","A","B","C","C","C","C","B","C","C","A","C","B","B","B","B","C","C","B","B","C","B","A","B","B","A","A","C","C","A","A","C","B","A","C","B","A","B","C","A","B","A","B","C","C","A","B","A","A","B","B","B","C","A","A","C","B","C","C","C","A","C","A","A","A","B","A","A","B","A","C","C","A","B","C","B","B","C","B","C","B","C","A","C","C","C","C","B","A","C","B","A","A","A","A","C","C","B","B","B","A","A","C","A","A","A","B","B","C","A","A","C","A","A","B","C","C","C","C","B","B","A","A","A","A","B","C","B","A","B","C","C","B","B","B","A","B","B","B","C","C","A","A","C","C","C","B","B","C","B","B","A","C","C","B","C","A","A","A","C","C","C","C","C","A","B","A","C","A","C","C","A","C","B","C","B","B","C","A","B","A","B","C","C","B","C","B","C","A","C","A","C","A","C","A","B","B","A","C","A","C","B","C","B","C","C","C","A","A","B","B","A","B","A","C","B","B","A","B","B","C","B","C","A","B","C","A","B","A","B","A","A","C","A","B","B","C","B","B","B","A","A","B","C","A","C","B","B","A","B","A","B","B","A","A","A","B","B","C","A","B","B","A","C","A","C","B","C","B","A","A","A","C","B","A","A","B","A","B","B","B","B","B","C","A","C","A","C","B","A","A","C","C","A","C","C","C","B","B","C","C","B","B","A","A","B","C","C","C","C","A","B","C","A","C","B","A"],"x0":" ","xaxis":"x","y":{"dtype":"f8","bdata":"Tr5pWVreE0BhuSiPDa0MQFrp4LVtHyRAB3+xs6tKOUAKpj7yPPM2QOnUPfPYmzRAtw4z7lAzQkB0sEjxoQlGQBIwY5O0sENALcebpi5nRkAIsfTwARZEQErmlp3fwUFACRwP0JX3QkB7VslILM0yQPh+QCMi1vg\u002fvmt5fEpIEMC228g\u002f12UswMzRQfzkHCbAJFqcJv0iNMBBc5RAPiFBwDl+Ze1smjPAKoIBr2ncNcAQlj5mii81wFdnc69yt0HAbR47BEJwRMBOKf\u002fmRuJDwOTVT3qMo0nAjgBKwKfCR8DnkXsJecNKwFyetj7XOEzA\u002fi25dwY7T8ACYcHzG\u002fhFwFWPB7liCUbAKv+hcEFTS8DxH1XsZTZHwBrma\u002fgTUU3A+IsujLtFTMCbzXsgDglTwNJbDyEYW1bAr5ZeYhrdVcBc6hAFfARUwHa1ZArPllPA8XLt2tLgU8DQmUavh6FUwJI2QrrIU1jAjGOvAHwgWsBhvhQPS0dbwAIIQye8oljAcwWZu9HGV8DIEFs7Ki9cwFXLdlDAX1vA7m\u002f0MTRWXMBolH0YbwdewOTNcA32f1zAYoY6Fx\u002fsWcAw+vAnGphXwNonFo4zsVnAe6ci6Rh3WsB+Dsi1FqNZwF4mfmW9MlfAXrq3TWllWMCELZqrO9xYwLyeq5dJoFvAKdXzFdydXsB3\u002fOHa15VcwEdkHX3ZMVnAIVCGoO9fWcARDAzMrN1WwKZ1yFk69lXAfIp0xRqTV8BdGR63z6tWwFiK481301LAuFjhimXqUsAxnuCmDAJOwOYcIV2pjVXA9yGD26R\u002fU8DD5NgQ70dTwA6uG25MB1TAtP0vWJLMU8A44qyincRYwFcqdK00UVnA9BSVWqdsWMB0SYwxzbpUwCg6C5Z+BlbAFtuRLe4LWMBasFENDk1ZwNcjrpEyA1fAINy8\u002fMswVsA7nSfm14NXwAtOrSlaO1bAnz0k+jj9VcDpzo4uSpFTwJN0jo+aUlXATeQTuk4kVsDAYge6QR9XwOP4CQTox1rAAslpq2MKWsD2obBfUGNZwK4CxpUKYFnANshKVy32WcAo1vCuA4BdwGgRijY6jV7AcO82j5BoX8CngWfVArVgwEmn7luf6GDAu7pOg1NnYMAjxelTfhdcwF74uX\u002fDp1vAiedice4CW8DfvmipkzJbwNRIPiOX\u002fl\u002fAsBLklccHYMCBU60NA+lfwMgwOXeJwFnAahjd4qU7WsCGTJ9eqHpZwIR5xIvfkFnATExywdN8XMDmomyqa6FZwPM0KPUuwFfAp5qPSOzFVcC\u002f8fNS7gtYwBi7DoEkilTAux5CyFMLWMAp4LIdvZNWwJhkxN3YGVHA2Tt5VsqTU8BXV8yOOP5UwE41m61xvlTAhxwbIasAVsAh8WvTF+FZwMer03c2tVnAetr7ThZdXMBH07js\u002fC1bwA7JJ2Rrel3A54toI3aaWcC5N5Rbvo9bwP65ourcXVzALGNyQTZVWsBnobQQ92hdwGLxkQdk11zAsdO9wtGSWcBOGVnQm5ddwMLFCGdxIV3AHYyZNB57XMAsrZ1YwIZawMajwllmnl3Au4wm+751YMD+OlYOc51fwCLbThZh317ABZCqVhA\u002fXsDFsY5DVmFdwH3Sp4ONFF\u002fARJ6LEel\u002fXsDXLRMTWMRdwIHdLGmHjV\u002fAJiw56m7jWsA2dhEhLrRZwIazTUudrlzAjNEIjWsKW8A76VBlN3pdwIBDTHR7glvAPHKVJ\u002fucWMDpwuO+N6pawP6hXTOoQVjA555vLHo5V8COUUPWWytVwLfdUUZpbVDAuIPiqXUKUcCT1fnL2exSwBM9R9cjJlXA9GexMkIwV8B8Z8aKmmFXwGBl2TNEh1bAZdSVLi\u002fWVcDMznt6ycRTwLDNnD93vFPA3kWsOTQaUMCi0tCZlcNQwBUyTyta7UPAHBEffn\u002fMQMDws3jhqBVFwFY5PO9mcErAE8ScX9YGSMAAAbOo3iRJwK68IfrykkXAJtbleDQ1Q8C4KOQMbZJDwCP4d2pSzkfAskfyjVNhT8Cu5XfJbs5QwFYHKtGsVE3ACnE3lKJCTMDIiYghlz5RwNB7CCvBz1DAcmOGiU2yT8BMOJD40Q5SwMmxS6ZvrFHAfoawuy6HUcDpOpz8rmJUwF0vCxuzfVPAigw5K8wWUsC8cjcbSsNOwM+1+T9sfknA\u002fQtleeswUMBpj466IIlSwM8wvlmBP1HAAdIaUl3tT8Dh\u002fq9+GlpNwH2tSeE2LTTAqOBeJnjvLMBdjUg3fuUIwLzoYEY7thlACqKpLT3iKUC2VVp5D5QjQDIPLM79YDFAjttAJR5NI0ALaciFNiEdQCEZITUubgNATErVfvb6CUDQWT9z5WQ6QHrGXyLK4h5AOP4bBgwrLUAWAvBhd7D4v7g8eOqyDBnAuCStvCeCEkC0MUXzYRQVQLNzBFK5BxbAns65iTdSKcBmOl9aWnUXwN3o+VMnVirAYQ26ueIBJsCW8bHNjhglwJVDnzRgEDHAlCKn+HuAEUA67ppT6G0lQN6xiZDSEiPADhSOVFqwHsBSWpXrhZQswNXn0\u002f8gEBfAclstSMVhK8BcjWihOK0twNo1RrSvkyPADjzhcigY8r8gXxCQiUQqwDZF5IKXejDA1ISgq3M6NcCAxCqE+cI7wMqyydnSNiTA\u002fi3xcaI6GMAmfwOFhaoywGQhJgeX+SLAVlTpitl3J0DO5Vc0CQ82QLO0Q53LdRtAdtu5F3ouAEDLWfxNNGItQHpIuJDfdR5AtH2UyEobKED2tqSQtcwzQA+Og9KIDyVA8TBkv8PeI0DYzBUXQ3o2wNWvLONYXEDALelTa6KfQcCeGScDzNxHwBch1vOeZj\u002fAFA32M+TZRsBay\u002fn6JQ1JwFVGc+jMZUjAkJYFevgwQcDW\u002fE3J315IwCT\u002fvEkGjkLAQOlcHu2AQsAM35XfQWlHwEg6k87DGUXAYAcH7fcaRMDYjAD+PhtHwC1ttz7mwUbArI3tzRmvSMCfo9JwzB1IwFfoFnZFzkTA1E8j8VbAOcBEX4fakhBDwBJ+cPSUzDDAUZiJm\u002fYoQsDclSmMP+tCwN7q04dn9D\u002fAOkc8sxAlPcD9dVqHlq9BwKa7GAf8uULAxATxkgYxRcBzeBeeaSNIwADhnADs40PAp\u002fP+KvEaQsDpmLzI3ZFFwGk9nuVgEkHAkBDa+hESP8DUW2SpJPE2wFiOlRpLpTDAdCEyRoXvOMCv+0yFlYk+wPXWAy+DEDfAxvYu7fb1MMAcEcD+eCsxwHhnc6Q6\u002fi\u002fAHu8411bCCcChNzQpbkUiwB6q3LkqUQ3AkiISRQm\u002fFsCLurJ7F3QfwOJ8ITfE\u002fghAQR5SxdLBJkBcGHkPf4MzQNFKZNPCSEBAvM5UXaVjQEDData2i8xDQIJk34BnP0JAYmZzVVbeQ0Ce2McOwTdDQNtID7Los0NALHfov7WtRkALeTcyY5ZCQJimnaikDE1AKegR4vAESECMafaOx\u002fJBQEWJWFQpvUdA4LRsXH2yS0A\u002f1FPxXNFOQGUcfpnS+lBAnPabFvzyUECgTTvde2lNQMDzdoCDyk1Abrb1Jr9nSkCuR+1i5kdPQDhYqJ+qi05A7IbEswdrSkC1Clj9p89IQDkPWl414EpAPtVqG6QOSEDghYntMvJDQDWUdFoeKkVAfjTW\u002f6xjRkBEdRLcydpDQAN9FQfcf0FAFHCxJuKoQkCQEY2\u002fq9Y2QL4YAZQghyFAshGc8opF+T+watBQgcLhvyywhbrCbgRAdDKaysFOMUB8uCGaXeI5QJkWfknsSDhAero30z0YOEDTeX9ciCMsQDTN3tK+xCtAfmcpLND+JUCysArYIXMsQMGFNWdrzxdA7+iRkMNKJkBGe2+OMXk6QLAtaIHEYjlAwoa4TCZnPUDv6XWI9SZCQK+825tlJUBAWwO3OzxEQUBasdqCWlRBQIcI3wNh0UFAFJiaVtrnO0BQNXtTmSY8QGlrPb68kEBAutADezPSR0CYB0ZYEZ5MQPJYFBYSsVNAeyyO3PfFUUDbBurfQPRTQJaZ\u002fqCXaVRApLwD8RDjWUAoNLNZwd1XQAty4lJVxFVAP1Uu1bhEVECuiriD2+pNQJRo6RvkSUtAaOq7hDN+R0CqGfCNtD5IQET6Dycn9ElAcVcWaNOqUUAWNibZGAtUQNotC\u002fTgmVJAq\u002fWLseRaUEAFswi7uJVRQBAqpXGLkUxA5N8Y7efcUkBaGEJlv89VQBRsHah5o1RAHzAJshFbUEANLy4ljL1TQMKP3u89dFNA04P0wnGMVkClneK7ApBSQDKNUiFpEFFA94wHQsQTUUBa9\u002fOO1TFRQI9P4dTKEVBAfK6BkGqgUUAgqkNER+pNQMa5ZFsINE1APP9g1ALOTUBtr8gSPzBQQEOIFA6u91FAOFKsY9FPTkB2H57bJqRGQPGttv+TB01ANvSBp\u002fCwTkCg6wWW4PJKQKLyXQgtWlFA+BsuKjWkUUAlqCQ39ZZUQKF8gnErwlRAJignYgzpWUA0OVJtd0xeQPk8FSQhrV1AHLyrqXcNYEDsGU7c\u002fNtgQOrxYijzkWJA0Aa8oCxdYUALHKb2tThiQIF98Rhoi2NAwAahKJxYYUAdhSE+77tfQJpxVHHTolpAUEyy02f2WUAEpzvzocFbQCjSKSEkg19AypaA0Y+yX0DixjwYcOJhQIaI5y7OKGBA8gkFMHIPXEBdt6lA5etbQM6CJomy4VxAJ\u002fkF1MXMXEB23FIdnKFXQAoM8a+SaFdAc82AZ7YlVED+bwGOTdJVQGzU5wLtvFZADbZuG2djVEBKkcMmhxpTQB2VpZuhdFBAOkHDQ4RMUEBiM1HIzq9SQGWiU23xOFBAAip9aIh7UUC+wP3\u002fKihQQMs8JW51WUxAXNHOuHXQS0Cyr4eEWaNGQAkXnLat3kNAlHnDK8rCO0BgQ483PrRHQF6Ps2Bh4UdAyojCUrthRECHjqtCoHNFQDBU6JrY40RARE1nSQHJQ0ASMlZuI9tGQPzMs46\u002fpEpAjGn+8LT9R0DTXf7RqBxFQAx9UuGXvENAm+GvtER0MEB2neh1Edb0P9FwVZ8n8S1ABFwX2rFrP0DMKNGXKe48QJCbb\u002fsSWUFACc7MbnnnQkBI5U2MOCZRQMn6mLO\u002f8lNAR\u002f\u002fwruGgU0BaCQXwVT1RQN2kgItrckpA1YRWgtp2S0AoAzZ\u002fua5HQDFUv2Y9kkBAJaMbzECtOkBat8v++rgvQFS23lHJXUBA93cNCUnGREBs4WyPFLxEQAoU26doIkxAlIvms3CFTECfNnwY\u002fzZIQIRUrmSY1E9ApfHbNzNDUUDmN9aduVZNQLKNQnAXY0xAbjZo2UwCSEBeKo0IURhBQA=="},"y0":" ","yaxis":"y","type":"box"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"category"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"value"}},"legend":{"tracegroupgap":0},"title":{"text":"Value Distribution by Category"},"boxmode":"group"},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('72ed6cd2-038f-447b-889f-7e4a1e29428f');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
+</div>
+</div>
+</section>
+</section>
+<section id="machine-learning-example" class="level2">
+<h2 class="anchored" data-anchor-id="machine-learning-example">Machine Learning Example</h2>
+<div id="4395c552" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestRegressor</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error, r2_score</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare features for modeling</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df_pandas[[<span class="st">'feature_1'</span>, <span class="st">'feature_2'</span>]].values</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_pandas[<span class="st">'value'</span>].values</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Train-test split</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Train a simple model</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> RandomForestRegressor(n_estimators<span class="op">=</span><span class="dv">100</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>model.fit(X_train, y_train)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Predictions</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(X_test)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Model performance</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>mse <span class="op">=</span> mean_squared_error(y_test, y_pred)</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>r2 <span class="op">=</span> r2_score(y_test, y_pred)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"📈 Model Performance:"</span>)</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"   MSE: </span><span class="sc">{</span>mse<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"   R²:  </span><span class="sc">{</span>r2<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>📈 Model Performance:
+   MSE: 6823.7200
+   R²:  -0.4547</code></pre>
+</div>
+</div>
+<div id="cf03ddca" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prediction vs actual plot</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fig_pred <span class="op">=</span> go.Figure()</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>fig_pred.add_trace(go.Scatter(x<span class="op">=</span>y_test, y<span class="op">=</span>y_pred, mode<span class="op">=</span><span class="st">'markers'</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                             name<span class="op">=</span><span class="st">'Predictions'</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                             marker<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">'blue'</span>, opacity<span class="op">=</span><span class="fl">0.6</span>, size<span class="op">=</span><span class="dv">8</span>)))</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>fig_pred.add_trace(go.Scatter(x<span class="op">=</span>[y_test.<span class="bu">min</span>(), y_test.<span class="bu">max</span>()], </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>                             y<span class="op">=</span>[y_test.<span class="bu">min</span>(), y_test.<span class="bu">max</span>()],</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>                             mode<span class="op">=</span><span class="st">'lines'</span>, name<span class="op">=</span><span class="st">'Perfect Prediction'</span>,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>                             line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">'red'</span>, dash<span class="op">=</span><span class="st">'dash'</span>)))</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>fig_pred.update_layout(title<span class="op">=</span><span class="st">'Model Predictions vs Actual Values'</span>,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>                      xaxis_title<span class="op">=</span><span class="st">'Actual Values'</span>,</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>                      yaxis_title<span class="op">=</span><span class="st">'Predicted Values'</span>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>fig_pred.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.0.1.min.js" integrity="sha256-oy6Be7Eh6eiQFs5M7oXuPxxm9qbJXEtTpfSI93dW16Q=" crossorigin="anonymous"></script>                <div id="34c8f8c2-a118-4bc0-be35-e7bc83c75256" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("34c8f8c2-a118-4bc0-be35-e7bc83c75256")) {                    Plotly.newPlot(                        "34c8f8c2-a118-4bc0-be35-e7bc83c75256",                        [{"marker":{"color":"blue","opacity":0.6,"size":8},"mode":"markers","name":"Predictions","x":{"dtype":"f8","bdata":"RntvjjF5OkAxnuCmDAJOwPJYFBYSsVNAgd0saYeNX8BJp+5bn+hgwFoYQmW\u002fz1VAlpn+oJdpVEAp4LIdvZNWwKZ1yFk69lXAOkHDQ4RMUEAtx5umLmdGQNB7CCvBz1DAIKpDREfqTUAW25Et7gtYwGlrPb68kEBAFjYm2RgLVECl8ds3M0NRQP4tuXcGO0\u002fAw2rWtovMQ0A8\u002f2DUAs5NQGzhbI8UvERAChTbp2giTECfo9JwzB1IwDTN3tK+xCtAw+TYEO9HU8Bej7NgYeFHQLKNQnAXY0xAXY1IN37lCMBoEYo2Oo1ewK5H7WLmR09AzCjRlynuPEDshsSzB2tKQM6CJomy4VxAYGXZM0SHVsBa6eC1bR8kQG629Sa\u002fZ0pAba\u002fIEj8wUEBdGR63z6tWwH2tSeE2LTTAKdXzFdydXsBo6ruEM35HQE3kE7pOJFbAMVS\u002fZj2SQECuvCH68pJFwCr\u002foXBBU0vADq4bbkwHVMBOvmlZWt4TQErmlp3fwUFAoOsFluDySkAQlj5mii81wLhY4Ypl6lLAVjk872ZwSsDHq9N3NrVZwEOIFA6u91FAyImIIZc+UcAw+vAnGphXwP46Vg5znV\u002fAJFqcJv0iNMD9C2V56zBQwLT9L1iSzFPAhFSuZJjUT0DYzBUXQ3o2wJimnaikDE1A1YRWgtp2S0A44qyincRYwK+WXmIa3VXAYjNRyM6vUkBhvhQPS0dbwFJaleuFlCzABbMIu7iVUUB8uCGaXeI5QDWUdFoeKkVA2IwA\u002fj4bR8CmuxgH\u002fLlCwIJk34BnP0JAHBHA\u002fngrMcBay\u002fn6JQ1JwHyKdMUak1fAyzwlbnVZTEBETWdJAclDQNctExNYxF3AdEmMMc26VMAJzsxueedCQHxnxoqaYVfALHfov7WtRkCfPST6OP1VwBwRH35\u002fzEDANvSBp\u002fCwTkBBHlLF0sEmQC1ttz7mwUbAP1Uu1bhEVEB2neh1Edb0P7AtaIHEYjlAKegR4vAESECacVRx06JaQL4YAZQghyFA1yOukTIDV8D3IYPbpH9TwPIJBTByD1xAvmt5fEpIEMA="},"y":{"dtype":"f8","bdata":"nx554NkEQEDvcAuqRPQTwKO\u002fhe9RlCJAAMKV+qCP+j97hACzHb8ZwA3OVbKcwDPA6jZROEmlS8BSIJcZrYo9wKnPMo1WmzdAKn9z6XOcAcBE2ccEiPZPwJoelmvQpivAWvsnVOT1QsATxogLpA5EwIr1FjfJgihA993AgB59EEDS6E7cN0AjwGevnHplAzFAcnfZomzDT8AjW5QEOAo9wMN5rHDbgjvAz9GcBdhyRMAMjy0h29hGwLN2h9gqWTXAYAnhtxqSQcDHKNHggEQRQDNL7KuH8i\u002fAX4FiunCpSsAz1wPAXiA4wNKNbj6coTDAWpIacArBOcAWZ8C6rk5JwP27s++gEUjADoxUmtycIEASAQGIKHkNQJMT3cLM91TACLBCL8YMOMBc3NA4nXA7QCrmzwiyWxzAyG8wfOLjEEBWcwIor2g4QKBItEpKWzZAUkcZZjPBQcCuK2Nuz5ZOwOirTvriFkfAF+1yFgjZSUD0HCGyVDoMQCtWREDIh0PAHy8g0+rHKUCAHU3keAlKwI+2Aeg5qURAwDnEi01gCkDRvD3rvLIxwO5nAMF9dUbAiGs00I9qNkB4LdK3NkczwMHc7XSQ7wLANxun9XKeUsByeolfIRsSQNqD3NmGbkJA3TzDz6CJO8BoxGqrlDA2QJ01Zz3aTkbADJ7bGerUJ8A\u002fYlJNnXYzQEoFwAIjeghA38tLtySGT8BzWMG\u002fd\u002foxwMFq0jEvbD3AElaoJ7JsOUCBEUo4TB9SwIasFEqNtzFAXFgOg6LoP0B30LXA0M5EwIQWbmsWMkLAXVsLSY7tQkAfj70egAJJwE5+9YTi50vAW5vvSfwgEMCmKIAoanw+wKHnLlb6Vh1AydOE\u002frodOsCMCDNWx78zQKTgUxMfqjFA3CcITxU3MECoNB8Xr8xFQEL75r8r4lDAgS4Sji+5RMA\u002feSB7zdY9wOowqStVhDPAcQ1tCRLURsBznOWP5cNQwHPzXLo1LT\u002fA1Ae2DDxBO8BN\u002fBzN+yIUQCE7MRP14z\u002fApnFxEO\u002fjPcCzdvvDgxMBQH8G1nhYhiXA2v2BxbX3RMA="},"type":"scatter"},{"line":{"color":"red","dash":"dash"},"mode":"lines","name":"Perfect Prediction","x":[-135.2694530163956,115.52652195702396],"y":[-135.2694530163956,115.52652195702396],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"title":{"text":"Model Predictions vs Actual Values"},"xaxis":{"title":{"text":"Actual Values"}},"yaxis":{"title":{"text":"Predicted Values"}}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('34c8f8c2-a118-4bc0-be35-e7bc83c75256');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
+</div>
+</div>
+</section>
+<section id="data-quality-report" class="level2">
+<h2 class="anchored" data-anchor-id="data-quality-report">Data Quality Report</h2>
+<div id="79f34b23" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a beautiful table using Rich</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> Table(title<span class="op">=</span><span class="st">"📋 Data Quality Report"</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>table.add_column(<span class="st">"Metric"</span>, style<span class="op">=</span><span class="st">"cyan"</span>, no_wrap<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>table.add_column(<span class="st">"Value"</span>, style<span class="op">=</span><span class="st">"magenta"</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>table.add_row(<span class="st">"Total Rows"</span>, <span class="bu">str</span>(<span class="bu">len</span>(df_pandas)))</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>table.add_row(<span class="st">"Missing Values"</span>, <span class="bu">str</span>(df_pandas.isnull().<span class="bu">sum</span>().<span class="bu">sum</span>()))</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>table.add_row(<span class="st">"Memory Usage (MB)"</span>, <span class="ss">f"</span><span class="sc">{</span>df_pandas<span class="sc">.</span>memory_usage(deep<span class="op">=</span><span class="va">True</span>)<span class="sc">.</span><span class="bu">sum</span>() <span class="op">/</span> <span class="dv">1024</span><span class="op">**</span><span class="dv">2</span><span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>table.add_row(<span class="st">"Duplicate Rows"</span>, <span class="bu">str</span>(df_pandas.duplicated().<span class="bu">sum</span>()))</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>table.add_row(<span class="st">"Categories"</span>, <span class="bu">str</span>(df_pandas[<span class="st">'category'</span>].nunique()))</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>console.<span class="bu">print</span>(table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">   📋 Data Quality Report    </span>
+┏━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃<span style="font-weight: bold"> Metric            </span>┃<span style="font-weight: bold"> Value </span>┃
+┡━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│<span style="color: #008080; text-decoration-color: #008080"> Total Rows        </span>│<span style="color: #800080; text-decoration-color: #800080"> 500   </span>│
+│<span style="color: #008080; text-decoration-color: #008080"> Missing Values    </span>│<span style="color: #800080; text-decoration-color: #800080"> 0     </span>│
+│<span style="color: #008080; text-decoration-color: #008080"> Memory Usage (MB) </span>│<span style="color: #800080; text-decoration-color: #800080"> 0.04  </span>│
+│<span style="color: #008080; text-decoration-color: #008080"> Duplicate Rows    </span>│<span style="color: #800080; text-decoration-color: #800080"> 0     </span>│
+│<span style="color: #008080; text-decoration-color: #008080"> Categories        </span>│<span style="color: #800080; text-decoration-color: #800080"> 3     </span>│
+└───────────────────┴───────┘
+</pre>
+</div>
+</div>
+</section>
+<section id="performance-comparison-pandas-vs-polars" class="level2">
+<h2 class="anchored" data-anchor-id="performance-comparison-pandas-vs-polars">Performance Comparison: Pandas vs Polars</h2>
+<div id="166d98e1" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> benchmark_operation(func, name):</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    start <span class="op">=</span> time.time()</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> func()</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    end <span class="op">=</span> time.time()</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> end <span class="op">-</span> start, result</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare groupby operations</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pandas_groupby():</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df_pandas.groupby(<span class="st">'category'</span>)[<span class="st">'value'</span>].agg([<span class="st">'mean'</span>, <span class="st">'std'</span>, <span class="st">'count'</span>])</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> polars_groupby():</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df_polars.group_by(<span class="st">'category'</span>).agg([</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">'value'</span>).mean().alias(<span class="st">'mean'</span>),</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">'value'</span>).std().alias(<span class="st">'std'</span>),</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>        pl.<span class="bu">len</span>().alias(<span class="st">'count'</span>)</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>    ])</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>pandas_time, pandas_result <span class="op">=</span> benchmark_operation(pandas_groupby, <span class="st">"Pandas"</span>)</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>polars_time, polars_result <span class="op">=</span> benchmark_operation(polars_groupby, <span class="st">"Polars"</span>)</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"⚡ Performance Comparison:"</span>)</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"   Pandas: </span><span class="sc">{</span>pandas_time<span class="sc">:.4f}</span><span class="ss"> seconds"</span>)</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"   Polars: </span><span class="sc">{</span>polars_time<span class="sc">:.4f}</span><span class="ss"> seconds"</span>)</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"   Speedup: </span><span class="sc">{</span>pandas_time<span class="op">/</span>polars_time<span class="sc">:.2f}</span><span class="ss">x faster with Polars!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>⚡ Performance Comparison:
+   Pandas: 0.0020 seconds
+   Polars: 0.0006 seconds
+   Speedup: 3.54x faster with Polars!</code></pre>
+</div>
+</div>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>This demo showcases the power of our hypermodern Python stack:</p>
+<ul>
+<li>🚀 <strong>Fast data processing</strong> with Polars</li>
+<li>📊 <strong>Interactive visualizations</strong> with Plotly<br>
+</li>
+<li>🔬 <strong>Machine learning</strong> with scikit-learn</li>
+<li>🎨 <strong>Beautiful terminal output</strong> with Rich</li>
+<li>⚡ <strong>Performance comparisons</strong> showing modern tool advantages</li>
+</ul>
+<p>The stack provides everything needed for professional data science and backend development! 🐍✨</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

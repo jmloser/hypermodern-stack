@@ -1,0 +1,204 @@
+---
+title: "Hypermodern Python Stack Demo"
+format: html
+jupyter: python3
+---
+
+## Welcome to the Hypermodern Python Stack! 🚀
+
+This notebook demonstrates the capabilities of our modern Python development environment.
+
+```{python}
+# Import libraries from our stack
+import numpy as np
+import pandas as pd
+import polars as pl
+import plotly.express as px
+import plotly.graph_objects as go
+from rich.console import Console
+from rich.table import Table
+
+console = Console()
+console.print("🚀 Welcome to the Hypermodern Python Stack!", style="bold blue")
+```
+
+## Generate Sample Data
+
+```{python}
+# Generate sample data using numpy
+np.random.seed(42)
+n_samples = 500
+
+data = {
+    'timestamp': pd.date_range('2024-01-01', periods=n_samples, freq='1H'),
+    'value': np.cumsum(np.random.randn(n_samples)) * 10,
+    'category': np.random.choice(['A', 'B', 'C'], n_samples),
+    'feature_1': np.random.randn(n_samples),
+    'feature_2': np.random.randn(n_samples) * 2 + 1,
+    'score': np.abs(np.random.randn(n_samples) * 100)  # Always positive for size
+}
+
+# Create both pandas and polars DataFrames for comparison
+df_pandas = pd.DataFrame(data)
+df_polars = pl.DataFrame(data)
+
+print(f"✅ Created DataFrames with {len(df_pandas)} rows")
+```
+
+## Fast Data Analysis with Polars
+
+```{python}
+# Demonstrate Polars performance and syntax
+polars_summary = (
+    df_polars
+    .group_by('category')
+    .agg([
+        pl.col('value').mean().alias('mean_value'),
+        pl.col('value').std().alias('std_value'),
+        pl.col('score').mean().alias('mean_score'),
+        pl.len().alias('count')
+    ])
+    .sort('mean_value', descending=True)
+)
+
+print("📊 Summary by Category (using Polars):")
+print(polars_summary)
+```
+
+## Interactive Visualizations with Plotly
+
+### Time Series Data
+
+```{python}
+# Time series plot
+fig_ts = px.line(df_pandas, x='timestamp', y='value', color='category',
+                title='Time Series Data by Category')
+fig_ts.show()
+```
+
+### Feature Correlation
+
+```{python}
+# Scatter plot with proper size values
+fig_scatter = px.scatter(df_pandas, x='feature_1', y='feature_2', 
+                        color='category', size='score',
+                        hover_data=['timestamp'],
+                        title='Feature Correlation (Interactive)',
+                        size_max=15)
+fig_scatter.show()
+```
+
+### Distribution Analysis
+
+```{python}
+# Box plot for value distribution
+fig_box = px.box(df_pandas, x='category', y='value',
+                title='Value Distribution by Category')
+fig_box.show()
+```
+
+## Machine Learning Example
+
+```{python}
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error, r2_score
+
+# Prepare features for modeling
+X = df_pandas[['feature_1', 'feature_2']].values
+y = df_pandas['value'].values
+
+# Train-test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train a simple model
+model = RandomForestRegressor(n_estimators=100, random_state=42)
+model.fit(X_train, y_train)
+
+# Predictions
+y_pred = model.predict(X_test)
+
+# Model performance
+mse = mean_squared_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+
+print(f"📈 Model Performance:")
+print(f"   MSE: {mse:.4f}")
+print(f"   R²:  {r2:.4f}")
+```
+
+```{python}
+# Prediction vs actual plot
+fig_pred = go.Figure()
+fig_pred.add_trace(go.Scatter(x=y_test, y=y_pred, mode='markers',
+                             name='Predictions',
+                             marker=dict(color='blue', opacity=0.6, size=8)))
+fig_pred.add_trace(go.Scatter(x=[y_test.min(), y_test.max()], 
+                             y=[y_test.min(), y_test.max()],
+                             mode='lines', name='Perfect Prediction',
+                             line=dict(color='red', dash='dash')))
+fig_pred.update_layout(title='Model Predictions vs Actual Values',
+                      xaxis_title='Actual Values',
+                      yaxis_title='Predicted Values')
+fig_pred.show()
+```
+
+## Data Quality Report
+
+```{python}
+# Create a beautiful table using Rich
+table = Table(title="📋 Data Quality Report")
+table.add_column("Metric", style="cyan", no_wrap=True)
+table.add_column("Value", style="magenta")
+
+table.add_row("Total Rows", str(len(df_pandas)))
+table.add_row("Missing Values", str(df_pandas.isnull().sum().sum()))
+table.add_row("Memory Usage (MB)", f"{df_pandas.memory_usage(deep=True).sum() / 1024**2:.2f}")
+table.add_row("Duplicate Rows", str(df_pandas.duplicated().sum()))
+table.add_row("Categories", str(df_pandas['category'].nunique()))
+
+console.print(table)
+```
+
+## Performance Comparison: Pandas vs Polars
+
+```{python}
+import time
+
+def benchmark_operation(func, name):
+    start = time.time()
+    result = func()
+    end = time.time()
+    return end - start, result
+
+# Compare groupby operations
+def pandas_groupby():
+    return df_pandas.groupby('category')['value'].agg(['mean', 'std', 'count'])
+
+def polars_groupby():
+    return df_polars.group_by('category').agg([
+        pl.col('value').mean().alias('mean'),
+        pl.col('value').std().alias('std'),
+        pl.len().alias('count')
+    ])
+
+pandas_time, pandas_result = benchmark_operation(pandas_groupby, "Pandas")
+polars_time, polars_result = benchmark_operation(polars_groupby, "Polars")
+
+print("⚡ Performance Comparison:")
+print(f"   Pandas: {pandas_time:.4f} seconds")
+print(f"   Polars: {polars_time:.4f} seconds")
+print(f"   Speedup: {pandas_time/polars_time:.2f}x faster with Polars!")
+```
+
+## Conclusion
+
+This demo showcases the power of our hypermodern Python stack:
+
+- 🚀 **Fast data processing** with Polars
+- 📊 **Interactive visualizations** with Plotly  
+- 🔬 **Machine learning** with scikit-learn
+- 🎨 **Beautiful terminal output** with Rich
+- ⚡ **Performance comparisons** showing modern tool advantages
+
+The stack provides everything needed for professional data science and backend development! 🐍✨
